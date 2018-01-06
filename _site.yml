@@ -5,6 +5,8 @@ navbar:
   left:
     - text: "Overview"
       href: index.html
+    - text: "Invitation"
+      href: invitation.html
     - text: "Topics"
       href: topics.html
     - text: "Prereqs"
