@@ -9,8 +9,8 @@ navbar:
       href: invitation.html
     - text: "Syllabus"
       href: syllabus.html
-    - text: "Topics"
-      href: topics.html
+    - text: "Schedule"
+      href: schedule.html
     - text: "Prereqs in R"
       href: prereqs.html
     - text: "References"
