@@ -1,9 +1,9 @@
 name: "Intro to Data Science"
 output_dir: "."
 navbar:
-  title: "Honors intro to data science"
+  title: ""
   left:
-    - text: "Home"
+    - text: "Honors intro to data science"
       href: index.html
     - text: "What?"
       href: invitation.html
@@ -13,6 +13,10 @@ navbar:
       href: schedule.html
     - text: "Prereqs in R"
       href: prereqs.html
+    - text: "Slack"
+      href: https://faudatascience.slack.com
+    - text: "KL Notes"
+      href: https://kevinlanning.github.io/DataSciLibArts/
     - text: "References"
       href: references.html
 output:

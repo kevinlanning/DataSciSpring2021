@@ -1,8 +1,6 @@
 ---
 title: "Honors Intro Data Science and Lab"
-subtitle: "Wilkes Honors College of FAU, Spring 2018"
-author: "Kevin Lanning, Warren McGovern"
-date: "Last revised `r Sys.Date()`"
+subtitle: "Wilkes Honors College of FAU"
 output:
   html_document:
     toc: false
@@ -14,4 +12,18 @@ output:
 This site (https://kevinlanning.github.io/DataSciSpring2018/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab *Intro to Data Science with R* taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.
 
 The files which were used to generate this site reside on https://github.com/kevinlanning/DataSciSpring2018. It was created using [R Markdown](http://rmarkdown.rstudio.com/), with assistance from a [post by Aleszu Bajak](http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/).
+
+#### Some additional resources
+
+Our Slack workspace is https://faudatascience.slack.com. 
+
+DataCamp (https://www.datacamp.com/) has generously provided full access to their entire online curriculum for students in this class.   
+
+For those interested in data visualization in business and applied settings, Tableau is a popular tool, and is also free for students https://www.tableau.com/academic/students.
+
+The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile   (https://www.coursera.org/specializations/jhu-data-science).
+
+Our Slack workspace is at https://faudatascience.slack.com, and Lanning's notes are at https://kevinlanning.github.io/DataSciLibArts/. Links are also in the navigation bar above
+
+\- *revised `r format(Sys.Date(),"%B %d, %Y")`*
 
