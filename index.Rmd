@@ -2,11 +2,15 @@
 title: "Honors Intro Data Science and Lab"
 subtitle: "Wilkes Honors College of FAU, Spring 2018"
 author: "Kevin Lanning, Warren McGovern"
-date: "`r Sys.Date()`"
+date: "Last revised `r Sys.Date()`"
+output:
+  html_document:
+    toc: false
+    theme: spacelab 
+    highlight: pygments
 ---
 
+This site (https://kevinlanning.github.io/DataSciSpring2018/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab *Intro to Data Science with R* taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.
 
-This site (https://kevinlanning.github.io/introDataScience/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab *Intro to Data Science with R* taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.
-
-The files which were used to generate this site reside on https://github.com/kevinlanning/introDataScience. It was created using [this very helpful post by Aleszu Bajak](http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/).
+The files which were used to generate this site reside on https://github.com/kevinlanning/DataSciSpring2018. It was created using [R Markdown](http://rmarkdown.rstudio.com/), with assistance from a [post by Aleszu Bajak](http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/).
 

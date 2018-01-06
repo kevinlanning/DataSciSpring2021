@@ -11,7 +11,6 @@
 
 <meta name="author" content="Kevin Lanning, Warren McGovern" />
 
-<meta name="date" content="2018-01-06" />
 
 <title>Honors Intro Data Science and Lab</title>
 
@@ -21,9 +20,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
@@ -151,101 +147,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -261,16 +162,16 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Overview</a>
+  <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="invitation.html">Invitation</a>
+  <a href="invitation.html">What?</a>
 </li>
 <li>
   <a href="topics.html">Topics</a>
 </li>
 <li>
-  <a href="prereqs.html">Prereqs</a>
+  <a href="prereqs.html">Prereqs in R</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -287,18 +188,16 @@ div.tocify {
 <h1 class="title toc-ignore">Honors Intro Data Science and Lab</h1>
 <h3 class="subtitle"><em>Wilkes Honors College of FAU, Spring 2018</em></h3>
 <h4 class="author"><em>Kevin Lanning, Warren McGovern</em></h4>
-<h4 class="date"><em>2018-01-06</em></h4>
+<h4 class="date"><em>Last revised 2018-01-06</em></h4>
 
 </div>
 
 
-<p>This site (<a href="https://kevinlanning.github.io/introDataScience/" class="uri">https://kevinlanning.github.io/introDataScience/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab <em>Intro to Data Science with R</em> taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.</p>
-<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/introDataScience" class="uri">https://github.com/kevinlanning/introDataScience</a>. It was created using <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">this very helpful post by Aleszu Bajak</a>.</p>
+<p>This site (<a href="https://kevinlanning.github.io/DataSciSpring2018/" class="uri">https://kevinlanning.github.io/DataSciSpring2018/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab <em>Intro to Data Science with R</em> taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.</p>
+<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/DataSciSpring2018" class="uri">https://github.com/kevinlanning/DataSciSpring2018</a>. It was created using <a href="http://rmarkdown.rstudio.com/">R Markdown</a>, with assistance from a <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">post by Aleszu Bajak</a>.</p>
 
 
 
-</div>
-</div>
 
 </div>
 

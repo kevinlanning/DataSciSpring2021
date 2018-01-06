@@ -2,7 +2,6 @@
 title: "Prereqs and coreqs as sets of eligible students"
 ---
 
-
 As noted in the syllabus, "STA 2023 (introductory stats) or equivalent or permission of instructor is a prerequisite for IDS 3932 (the seminar), enrollment in IDS 3932 is a corequisite for IDS 3932L (the lab), and enrollment in IDS 3932L is not a corequisite for IDS 3932." These pre and corequisites may be described as a series of logical relationships. 
 
 ## An illustration using R 
