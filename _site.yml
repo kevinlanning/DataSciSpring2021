@@ -13,9 +13,9 @@ navbar:
       href: schedule.html
     - text: "Prereqs in R"
       href: prereqs.html
-    - text: "Slack"
+    - text: "Slack [external]"
       href: https://faudatascience.slack.com
-    - text: "KL Notes"
+    - text: "KL Notes [external]"
       href: https://kevinlanning.github.io/DataSciLibArts/
     - text: "References"
       href: references.html
