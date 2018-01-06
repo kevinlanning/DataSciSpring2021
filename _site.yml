@@ -1,8 +1,19 @@
-name: "my-website-name"
+name: "Intro to Data Science"
 output_dir: "."
 navbar:
-  title: "Website title"
+  title: "Honors intro to data science"
   left:
-    - text: "Index"
+    - text: "Overview"
       href: index.html
+    - text: "Topics"
+      href: topics.html
+    - text: "Prereqs"
+      href: prereqs.html
+output:
+  html_document:
+    toc: true
+    toc_float: yes
+    toc_depth: 2
+    theme: spacelab 
+    highlight: pygments
       
