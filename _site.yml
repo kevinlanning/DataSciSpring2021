@@ -7,10 +7,14 @@ navbar:
       href: index.html
     - text: "What?"
       href: invitation.html
+    - text: "Syllabus"
+      href: syllabus.html
     - text: "Topics"
       href: topics.html
     - text: "Prereqs in R"
       href: prereqs.html
+    - text: "References"
+      href: references.html
 output:
   html_document:
     toc: true

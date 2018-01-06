@@ -8,6 +8,7 @@ output:
     toc: false
     theme: spacelab 
     highlight: pygments
+
 ---
 
 This site (https://kevinlanning.github.io/DataSciSpring2018/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab *Intro to Data Science with R* taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.

@@ -2,7 +2,7 @@
 title: "Topic list"
 ---
 
-The class will cover a series of modules, which may be covered in more than or less than a single class period.
+The class will cover a series of modules, each of which may be covered in more than or less than a single class period.
 
 ## Introduction
 

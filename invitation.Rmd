@@ -65,7 +65,7 @@ The labs will have two features.  First, they will allow for a project-based app
 |             Analyzing texts              |               Word clouds                |  Text mining, natural language analysis  |
 |           Generating products            |          Team project in class           |       Project in class and poster        |
 
-## So should you sign up for the class?
+## So should you enroll?
 
 I think that this course will have something for every Wilkes Honors College student. The WHC was built and funded by the state of Florida to train tomorrow's leaders. That's you. The skills and perspective that you will gain in this course will help you in graduate and professional schools, will help you in your careers, and will help you in your goal of making a better world. And it will help you train the next generation of data scientists, too.
 

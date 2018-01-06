@@ -8,10 +8,9 @@ As noted in the syllabus, "STA 2023 (introductory stats) or equivalent or permis
 
 Our first use of the programming language R is drawn directly from the syllabus.  This document includes comments, code, and results, and was generated using the R markdown package, together with a supplemental package expressly written to produce Venn diagrams. 
 
-This and all code will be stored in the class github repository (https://github.com/kevinlanning/introDataScience). 
+The document which generated this (prereqs.Rmd) and all code will be stored in the class github repository (https://github.com/kevinlanning/introDataScience).  If you want to run this on your own computer, you will likely need to first *install* the Venndiagram package, that is, copy it on to your machine using the following command:
 
-Note that to run this, you may need to first *install* the Venndiagram package, that is, copy it on to your machine:
-install.packages("VennDiagram")
+install.packages ("VennDiagram")
 
 ## Code 
 
