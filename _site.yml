@@ -1,0 +1,7 @@
+name: "my-website-name"
+output_dir: "."
+navbar:
+  title: "Website title"
+  left:
+    - text: "Index"
+      href: index.html
