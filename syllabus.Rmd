@@ -1,12 +1,10 @@
 ---
-title: ""
+title: "Syllabus"
 ---
-
-# Syllabus 
 
 #### Honors Introduction to Data Science (IDS 3932, 3 credits) and 
 
-#### Syllabus for Honors Data Science Lab: Statistical Programming with R (IDS 3932L 1 credit)
+#### Honors Data Science Lab: Statistical Programming with R (IDS 3932L 1 credit)
 
 Instructors: Kevin Lanning and Warren McGovern
 

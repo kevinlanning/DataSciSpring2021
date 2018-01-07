@@ -1,3 +1,3 @@
 # IntroDataSci
 
-Course website for Wilkes Honors College Intro Data Science
+Course website for Wilkes Honors College Introduction to Data Science and lab, Spring 2018.

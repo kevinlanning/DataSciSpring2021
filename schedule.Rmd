@@ -2,7 +2,7 @@
 title: "Schedule"
 ---
 
-The class will cover a series of modules, each of which may be covered in more than or less than a single class period.  My notes for these modules will be updated regularly [here](https://kevinlanning.github.io/DataSciSpring2018/).
+The class will cover a series of modules, each of which may be covered in more than or less than a single class period.  My notes for these modules will be updated regularly [here](https://kevinlanning.github.io/DataSciLibArts/).
 
 ## Introduction (weeks 1-3)
 

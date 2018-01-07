@@ -13,12 +13,13 @@ navbar:
       href: schedule.html
     - text: "Prereqs in R"
       href: prereqs.html
-    - text: "Slack [external]"
-      href: https://faudatascience.slack.com
-    - text: "KL Notes [external]"
-      href: https://kevinlanning.github.io/DataSciLibArts/
     - text: "References"
       href: references.html
+    - text: "   "
+    - text: "Slack (external)"
+      href: https://faudatascience.slack.com
+    - text: "KL Notes (external)" 
+      href: https://kevinlanning.github.io/DataSciLibArts/
 output:
   html_document:
     toc: true
