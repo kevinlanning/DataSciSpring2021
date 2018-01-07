@@ -4,13 +4,33 @@ title: "Schedule"
 
 The class will cover a series of modules, each of which may be covered in more than or less than a single class period.  My notes for these modules will be updated regularly [here](https://kevinlanning.github.io/DataSciLibArts/).
 
-## Introduction (weeks 1-3)
+```{r echo=FALSE, message=FALSE}
+library(knitr)
+library(googlesheets)
+library(kableExtra)
+suppressMessages(library(dplyr))
+sched <- gs_title("DataSciSpring2018Schedule") %>% #  register a googlesheet
+    gs_read(ws=1) # and read in the first worksheet as a data table
+#    gs_read_cellfeed(ws=1) to read in formulas as well as contents
+sched[is.na(sched)] <-"tba"
 
-1 Data science for the liberal arts
+```
 
-2 Pretest
 
-3 Setting up your computer
+## Introduction (weeks 1-2)
+
+```{r echo=FALSE, message=FALSE}
+kable(sched[c(1:2,4),c(1,3:7)], "html") %>%
+    kable_styling(bootstrap_options = c("striped", 
+                                        "hover", "condensed", "responsive"))
+
+```
+
+*1 Data science for the liberal arts
+
+2 Setting up your computer
+
+3 Pretest
 
 4 Some basic tools: Slack, Markdown, Google Docs
 
@@ -19,6 +39,12 @@ The class will cover a series of modules, each of which may be covered in more t
 6 Finding help
 
 ## Towards data literacy (wks 3-5)
+```{r echo=FALSE, message=FALSE}
+kable(sched[5:9,c(1,3:7)], "html") %>%
+    kable_styling(bootstrap_options = c("striped", 
+                                        "hover", "condensed", "responsive"))
+
+```
 
 7 Empiricism > intuition
 
@@ -34,7 +60,13 @@ The class will cover a series of modules, each of which may be covered in more t
 
 13 Reproducibility
 
-## Towards data proficiency (wks 5-10)
+## Towards data proficiency (wks 5-9)
+```{r echo=FALSE, message=FALSE}
+kable(sched[9:15,c(1,3:7)], "html") %>%
+    kable_styling(bootstrap_options = c("striped", 
+                                        "hover", "condensed", "responsive"))
+
+```
 
 14 Literate programming with R markdown 
 
@@ -58,7 +90,13 @@ The class will cover a series of modules, each of which may be covered in more t
 
 24 Open science
 
-## Towards data fluency (wks 10-14)
+## Towards data fluency (wks 9-13)
+```{r echo=FALSE, message=FALSE}
+kable(sched[c(16,19:27),c(1,3:7)], "html") %>%
+    kable_styling(bootstrap_options = c("striped", 
+                                        "hover", "condensed", "responsive"))
+
+```
 
 25 Writing functions
 
@@ -76,21 +114,33 @@ The class will cover a series of modules, each of which may be covered in more t
 
 32 Some machine learning techniques
 
-33 Analyzing text data
+33 Concepts in computational linguistics
 
-34 Analyzing networks 
+34 Analyzing text data
 
-35 Categories and classification
+35 From graphs to networks
 
-36 Making interactive visualizations with R Shiny
+36 Empirical findings in network analysis
 
-## Towards data leadership (wks 14-15)
+37 Analyzing networks 
 
-37 The significance of scalability 
+38 Categories and classification
 
-38 Digital humanities and data science
+39 Making interactive visualizations with R Shiny
 
-39 Humility and teamwork
+## Towards data leadership (wks 13-15)
+```{r echo=FALSE, message=FALSE}
+kable(sched[28:32,c(1,3:7)], "html") %>%
+    kable_styling(bootstrap_options = c("striped", 
+                                        "hover", "condensed", "responsive"))
 
-40 Ethics and data responsibility
+```
+
+40 The significance of scalability 
+
+41 Digital humanities and data science
+
+42 Humility and teamwork
+
+43 Ethics and data responsibility
 

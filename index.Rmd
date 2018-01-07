@@ -15,11 +15,15 @@ The files which were used to generate this site reside on https://github.com/kev
 
 #### Some additional resources
 
-DataCamp (https://www.datacamp.com/) has generously provided full access to their entire online curriculum for students in this class.   
+[DataCamp](https://www.datacamp.com/) has generously provided full access to their entire online curriculum for students in this class.   
+
+The [Datacarpentry site](http://www.datacarpentry.org/lessons/) includes lessons aimed at fostering data literacy in content areas including ecology, genomics, and other areas. 
 
 For those interested in data visualization in business and applied settings, Tableau is a popular tool, and is also free for students https://www.tableau.com/academic/students.
 
 The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile   (https://www.coursera.org/specializations/jhu-data-science).
+
+If you use these (or other) resources, please let your classmates know on Slack.  
 
 Our Slack workspace is at https://faudatascience.slack.com, and Lanning's notes are at https://kevinlanning.github.io/DataSciLibArts/. These links are also in the navigation bar above
 

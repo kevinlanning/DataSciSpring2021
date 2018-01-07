@@ -15,10 +15,9 @@ navbar:
       href: prereqs.html
     - text: "References"
       href: references.html
-    - text: "   "
-    - text: "Slack (external)"
+    - text: "    Slack"
       href: https://faudatascience.slack.com
-    - text: "KL Notes (external)" 
+    - text: "KL Notes" 
       href: https://kevinlanning.github.io/DataSciLibArts/
 output:
   html_document:
