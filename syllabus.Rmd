@@ -58,15 +58,15 @@ In addition to R, we'll use a range of other tools: We'll communicate on the Sla
 
 Grades will be based on a 100 point scale, with points earned by participation, homework and quizzes, a term project, and a final exam.
 
-Participation (25 points). Attendance is a necessary but not sufficient part of class participation. Your participation grade will be based also on the extent to which you contribute to our class by asking constructive questions and helping us solve the numerous challenges ... 
+Participation (25 points). Attendance is a necessary but not sufficient part of class participation. Your participation grade will be based also on the extent to which you contribute to our class by asking constructive questions and helping us solve the numerous challenges which we collectively will face.
 
-Homework and quizzes (35 points) 
+Homework/quizzes (35 points). These are linked - most homework projects will be submitted in an in-class quiz at the beginning of class on the assigned date.  The first example of this will be in the second class (January 10).
 
-A term project (25 points). Group. Learning is social. The term project will be a collaborative paper, which you will write with two or three of your peers. In order for me to assess your individual contributions and to minimize social loafing, I ask that (1) all meetings and communications among group members be undertaken on the [Slack](https://honorscollege.slack.com/) platform, (2) that all writing be done with ‘revision tracking’ in Word or Google docs, and (3) in addition to the paper, that all group members sign a 1-page cover page describing the primary contribution and percent effort of each person. We’ll work together on creating groups that will, hopefully, maximize synergies among you, that is, how much you learn from each other and the quality of the final project. Groups and paper topics will be developed in class following the second exam.
+A term project (25 points). Group. Learning is social. The term project will be a collaborative, data based project, which you will write with two to four of your peers. In order for me to assess your individual contributions and to minimize social loafing, I ask that (1) all meetings and communications among group members be undertaken on the [Slack](https://faudatascience.slack.com/) platform, (2) that all writing be done in Google docs, and (3) in addition to the paper, that all group members sign a 1-page cover page describing the primary contribution and percent effort of each person. We’ll work together on creating groups that will, hopefully, maximize synergies among you, that is, how much you learn from each other and the quality of the final project. Groups and paper topics will be developed in class. You'll present your project in class in the final week of the term.
 
-A final exam (15 points). Will include questions about the other group projects.
+A final exam (15 points). This will include questions about the other group projects.
 
-Above and beyond (10 points). You'll have the opportunity to earn an additional 10 points by solve one or more data challenges as the class goes forward.
+Above and beyond (10 points). You'll have the opportunity to earn an additional 10 points by solving one or more data challenges as the class goes forward.
 
 ## Class Schedule 
 
