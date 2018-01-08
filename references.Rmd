@@ -6,8 +6,8 @@ output:
     theme: spacelab 
     highlight: pygments
 bibliography: 
- - dataSciRefs.bib
- - packages.bib
+ - ../dataSciRefs.bib
+ - ../packages.bib
 biblio-style: "apalike"
 nocite: |
   @*
