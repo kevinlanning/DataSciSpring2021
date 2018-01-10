@@ -19,7 +19,7 @@ Class meeting days/time: IDS 3932 – MW 11-1230; IDS 3932L – W 2-5
 Class location: SR 258  
 KL Phone: 561-799-8652, WM Phone: 
 
-Emails: lanning\@fau.edu,  
+Emails: lanning\@fau.edu, warren.mcgovern\@fau.edu
 Website: https://kevinlanning.github.io/DataSciSpring2018/topics.html
 
 ## Course Description 

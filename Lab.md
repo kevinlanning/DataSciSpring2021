@@ -1,6 +1,4 @@
----
-title: "Lab"
----
+# Lab
 
 ## The first lab will be to discuss what's in the lab
 

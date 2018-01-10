@@ -13,6 +13,8 @@ navbar:
       href: schedule.html
     - text: "Prereqs in R"
       href: prereqs.html
+    - text: "Lab"
+      href: lab.html
     - text: "References"
       href: references.html
     - text: "    Slack"
