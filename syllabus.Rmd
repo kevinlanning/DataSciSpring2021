@@ -10,14 +10,14 @@ Instructors: Kevin Lanning and Warren McGovern
 
 Term: Spring 2018
 
-Lanning office: WB 213; Office hours TBA
+Lanning office: WB 213; Office hours Mondays and Tuesdays 2-5 and by appointment
 
-McGovern office: 
+McGovern office: Mondays 2PM and Fridays 11 AM
 
 Class meeting days/time: IDS 3932 – MW 11-1230; IDS 3932L – W 2-5
 
 Class location: SR 258  
-KL Phone: 561-799-8652, WM Phone: 
+KL Phone: 561-799-8652
 
 Emails: lanning\@fau.edu, warren.mcgovern\@fau.edu
 Website: https://kevinlanning.github.io/DataSciSpring2018/topics.html

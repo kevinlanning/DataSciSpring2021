@@ -2,7 +2,7 @@
 title: "Lab"
 ---
 
-## The first lab will be to discuss what's in the lab
+# Lab 1: What's in the lab
 
 There are several models or approaches. We'll discuss these today and decide how to move forward. For all of these, a reproducible write-up is essential.
 
@@ -40,15 +40,13 @@ Within R, students could collectively learn to use other packages (eg., leaflet,
 
 Students might also be interested in developing better visualizations, using other tools including Tableau.
 
+(Other data viz work could be improving on Lanning's old papers - see ...)
+
 **I expect that a critical component of these skills would be writing documentation that would be accessible to me and to students who are taking the lecture but not the lab.**
 
 ## The 'my data' approach
 
 A third approach would be to use the tools of data science to examine data that you are examining in someone's lab here at the WHC. This could include data that you will analyze for your thesis if those data are being examined by a group of students in the class.
-
-Learning something new and teaching it to me
-
-Additional r packages for mapping (leaflet, e.g., http://www.hcbravo.org/IntroDataSci/projects/Project4/
 
 ## The 'other data' approach
 
@@ -67,4 +65,32 @@ The classic Kaggle is the [Netflix prize](https://gist.github.com/loretoparisi/b
 We can combine some or all of these, depending on the goals of the class.  That's what we will begin to examine today.
 
 #### Be patient. Remeber that trying can be trying
+
+# Lab 2
+
+Today's lab has two parts (I am cross-posting this from Slack)
+
+## What data should we look at?
+
+In 2018, "finding data" is kind of like "looking for air." Data are everywhere, the question is what to look at and, as discussed in the first class, what *not* to look at too.
+
+Part of the assignment for the next lab is to pitch an idea for a data set or data problem to examine to your classmates.  This will be 5 minutes or less, a simple oral talk that begins with **"I think we should study..."** It doesn't have to be perfect. The important thing is for you to spend some time looking at data and thinking about it.  
+
+I spent a few minutes looking through the list of datasets on the [www.kaggle.com/datasets](http://www.kaggle.com/datasets) page.  The main goal of a kaggle competition is to use machine learning techniques to come up with a better way to predict an outcome of interest.  This is too far advanced for us right now (but will be accessible at the end of the class if you choose).  But looking through their datasets is really interesting. 
+
+### A sample pitch
+
+On Kaggle, there is, a challenge for predicting housing prices using data from Zillow.  This includes a lot of data on housing prices, including data on historical trends by zip code and the health of the market here in Jupiter. (Jupiter is, relative to other local markets, a better place to sell than buy a home right now. As you know from class, I am in the middle of doing both of these at this writing). If you are interested in this stuff, all of the Zillow data can be found at <https://www.zillow.com/research/data/>. And for the podcast people, there is an interview with an analyst from Zillow on Data Skeptic here <https://dataskeptic.com/blog/episodes/2017/zillow-zestimate>. 
+
+**If you Google "housing prices r" **you can see a number of examples of how people examine, predict, and report housing prices.  Some of this may look challenging, but you (particularly as a team) will be able to adapt code like this for your own use in the weeks ahead. 
+
+#### Beyond Zillow
+
+If I were pitching something (and I'm not - this is just an example), I might ask the following: **Have areas that voted for Trump increased in value more than those which went for Clinton since last November?**  To address this, we would need to combine the Zillow data with some regional data on voting.  Could we do this? Should we, and do we want to?
+
+## Working collaboratively
+
+As we discussed in class, there are two parts to the assignment this week.  The first is to look for and pitch an interesting dataset or data project. I'll discuss this in another post.   The other is to contribute to this post to collectively answer this question (Chapter 2, activity 7) from the Salgarnik book.  **How far can we get with this? How can each student contribute to the solution**? Here's the question: [http://www.bitbybitbook.com/en/observing-behavior/observing-activities](http://www.bitbybitbook.com/en/observing-behavior/observing-activities/). 
+
+The source paper (Michel 2011) is in our Slack channel. Using this or other materials, contribute to a shared post on our Slack channel.
 
