@@ -2,9 +2,7 @@
 title: "Syllabus"
 ---
 
-#### Honors Introduction to Data Science (IDS 3932, 3 credits) and 
-
-#### Honors Data Science Lab: Statistical Programming with R (IDS 3932L 1 credit)
+#### Honors Introduction to Data Science (IDS 3932, 3 credits)  
 
 Instructors: Kevin Lanning and Warren McGovern
 
@@ -14,7 +12,7 @@ Lanning office: WB 213; Office hours Mondays and Tuesdays 2-5 and by appointment
 
 McGovern office: Mondays 2PM and Fridays 11 AM
 
-Class meeting days/time: IDS 3932 – MW 11-1230; IDS 3932L – W 2-5
+Class meeting days/time: IDS 3932 – MW 11-1230
 
 Class location: SR 258  
 KL Phone: 561-799-8652
@@ -49,8 +47,7 @@ In addition, there are a number of sources which we are likely to access at leas
 
 ## Course Objectives
 
-Hochster (in Hicks & Irizarry, 2017) describes two broad types of data
-scientists: Type A (Analysis) data scientists, whose skills are like those of an applied statistician, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the computer scientist. Our course is closer to a Type A than a Type B treatment, one which is closer to Statistics than to Computer Science, but it is also essentially concerned with content in the concentrations in the arts, humanities, and natural and social sciences. As discussed in the first meeting, it is arguably best understood as a third (Type C) approach, one which has as its objective progress in the understanding of statistics and computing, but also skills such as collaboration and communication, providing an introduction to some of the methods and tools of reproducible science, and fostering a heightened sensitivity to the ethical challenges of the digital age. (*IDS* is an abbreviation for "InterDisciplinary Studies" as well as "Introduction to Data Science."  So our course number 'IDS 3932' is particularly apt).
+Hochster (in Hicks & Irizarry, 2017) describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied statistician, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the computer scientist. Our course is closer to a Type A than a Type B treatment, one which is closer to Statistics than to Computer Science, but it is also essentially concerned with content in the concentrations in the arts, humanities, and natural and social sciences. As discussed in the first meeting, it is arguably best understood as a third (Type C) approach, one which has as its objective progress in the understanding of statistics and computing, but also skills such as collaboration and communication, providing an introduction to some of the methods and tools of reproducible science, and fostering a heightened sensitivity to the ethical challenges of the digital age. (*IDS* is an abbreviation for "InterDisciplinary Studies" as well as "Introduction to Data Science."  So our course number 'IDS 3932' is particularly apt).
 
 In addition to R, we'll use a range of other tools: We'll communicate on the Slack platform. We'll write using markdown editors such as Typora. We'll certainly use spreadsheets such as Excel or Google Sheets. We may use additional tools for visualizing data such as Gephi and Tableau.
 
@@ -62,7 +59,7 @@ Participation (25 points). Attendance is a necessary but not sufficient part of 
 
 Homework/quizzes (35 points). These are linked - most homework projects will be submitted in an in-class quiz at the beginning of class on the assigned date.  The first example of this will be in the second class (January 10).
 
-A term project (25 points). Group. Learning is social. The term project will be a collaborative, data based project, which you will write with two to four of your peers. In order for me to assess your individual contributions and to minimize social loafing, I ask that (1) all meetings and communications among group members be undertaken on the [Slack](https://faudatascience.slack.com/) platform, (2) that all writing be done in Google docs, and (3) in addition to the paper, that all group members sign a 1-page cover page describing the primary contribution and percent effort of each person. We’ll work together on creating groups that will, hopefully, maximize synergies among you, that is, how much you learn from each other and the quality of the final project. Groups and paper topics will be developed in class. You'll present your project in class in the final week of the term.
+A term project (25 points). Group. Learning is social. The term project will be a collaborative, data based project, which you will write with two to four of your peers. In order for us to assess your individual contributions and to minimize social loafing, I ask that (1) all meetings and communications among group members be undertaken on the [Slack](https://faudatascience.slack.com/) platform, (2) that all writing be done in Google docs, and (3) in addition to the paper, that all group members sign a 1-page cover page describing the primary contribution and percent effort of each person. We’ll work together on creating groups that will, hopefully, maximize synergies among you, that is, how much you learn from each other and the quality of the final project. Groups and paper topics will be developed in class. You'll present your project in class in the final week of the term.
 
 A final exam (15 points). This will include questions about the other group projects.
 
