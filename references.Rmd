@@ -5,9 +5,7 @@ bibliography:
 - ../packages.bib
 nocite: |
   @*
-output:
-  word_document: default
-  word_document#: null
+output: html_document
 biblio-style: apalike
 ---
 
