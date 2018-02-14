@@ -2,13 +2,13 @@
 title: "Lab"
 ---
 
-# Lab 1: What's in the lab
+# What's in the lab?
 
-There are several models or approaches. We'll discuss these today and decide how to move forward. For all of these, a reproducible write-up is essential.
+There are several models or approaches for a lab. Ours will be arrived at collectively, combining the following.  Regardless,  a reproducible write-up is essential.
 
 ## The project/activity approach
 
-This includes projects ranging in scope, ambition, and potential, from the weekly or bi-weekly activity to the term-long project
+This includes projects ranging in scope, ambition, and potential, from the weekly or bi-weekly activity to the term-long project.
 
 #### Lab as a series of activities
 
@@ -28,7 +28,7 @@ At Harvard, students develop "a month-long data science project. The goal of the
 
 At UCSB, there is a working group which produces student projects and publishes them on the https://www.inertia7.com platform
 
-**Any such project would, presumably, be presented at the Research Symposium**
+**Any such project would, presumably, be submitted to the Research Symposium**
 
 A more modest, but somewhat cool thing to consider, would be to modify the rBookdown package to create a template for a thesis that would be acceptable here at the Honors College.
 
@@ -66,13 +66,9 @@ We can combine some or all of these, depending on the goals of the class.  That'
 
 #### Be patient. Remeber that trying can be trying
 
-# Lab 2
+# Where do I find data?
 
-Today's lab has two parts (I am cross-posting this from Slack)
-
-## What data should we look at?
-
-In 2018, "finding data" is kind of like "looking for air." Data are everywhere, the question is what to look at and, as discussed in the first class, what *not* to look at too.
+In 2018, "finding data" is kind of like "looking for air" (e.g., there's a lot of it, and some samples of air are better than others).  Data are everywhere, the question is what to look at and, as discussed in the first class, what *not* to look at too.
 
 Part of the assignment for the next lab is to pitch an idea for a data set or data problem to examine to your classmates.  This will be 5 minutes or less, a simple oral talk that begins with **"I think we should study..."** It doesn't have to be perfect. The important thing is for you to spend some time looking at data and thinking about it.  
 
@@ -93,4 +89,8 @@ If I were pitching something (and I'm not - this is just an example), I might as
 As we discussed in class, there are two parts to the assignment this week.  The first is to look for and pitch an interesting dataset or data project. I'll discuss this in another post.   The other is to contribute to this post to collectively answer this question (Chapter 2, activity 7) from the Salgarnik book.  **How far can we get with this? How can each student contribute to the solution**? Here's the question: [http://www.bitbybitbook.com/en/observing-behavior/observing-activities](http://www.bitbybitbook.com/en/observing-behavior/observing-activities/). 
 
 The source paper (Michel 2011) is in our Slack channel. Using this or other materials, contribute to a shared post on our Slack channel.
+
+# Moving forward
+
+For our latest assignments, etc., see our Slack channel.
 

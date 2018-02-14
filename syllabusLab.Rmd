@@ -1,5 +1,6 @@
 ---
 title: "SyllabusLab"
+output: pdf_document
 ---
 
 #### Honors Data Science Lab: Statistical Programming with R (IDS 3932L 1 credit)
