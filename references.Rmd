@@ -1,8 +1,8 @@
 ---
 title: "References"
 bibliography:
-- ../dataSciRefs.bib
-- ../packages.bib
+- ../../9Bibliography/dataSciRefs.bib
+- ../../9Bibliography/r-references.bib
 nocite: |
   @*
 output: html_document

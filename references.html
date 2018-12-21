@@ -76,8 +76,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -93,7 +99,6 @@ body {
   padding-top: 57px;
   margin-top: -57px;
 }
-
 .section h2 {
   padding-top: 57px;
   margin-top: -57px;
@@ -113,6 +118,43 @@ body {
 .section h6 {
   padding-top: 57px;
   margin-top: -57px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -134,18 +176,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -311,14 +412,26 @@ div.tocify {
 <div id="ref-alter2017irresistible">
 <p>Alter, Adam. 2017. <em>Irresistible: The Rise of Addictive Technology and the Business of Keeping Us Hooked</em>. Penguin.</p>
 </div>
+<div id="ref-anscombe1973graphs">
+<p>Anscombe, FJ. 1973. “Graphs in Statistical Analysis.” <em>American Statistician</em> 27 (1): 17–21.</p>
+</div>
+<div id="ref-R-papaja">
+<p>Aust, Frederik, and Marius Barth. 2017. <em>papaja: Create APA Manuscripts with R Markdown</em>. <a href="https://github.com/crsh/papaja" class="uri">https://github.com/crsh/papaja</a>.</p>
+</div>
 <div id="ref-NEU2017">
 <p>Bajak, Aleszu. 2017a. <em>Digital Storytelling and Social Media, Northeastern School of Journalism, Jrnl 3610</em>. <a href="https://aleszu.github.io/digisoc/index.html" class="uri">https://aleszu.github.io/digisoc/index.html</a>.</p>
 </div>
 <div id="ref-Bajak2017GithubPage">
 <p>———. 2017b. “How to Convert a Google Doc to Rmarkdown and Publish on Github Pages.” <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/" class="uri">http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/</a>.</p>
 </div>
+<div id="ref-baker2016reproducibility">
+<p>Baker, Monya. 2016. “Is There a Reproducibility Crisis?” <em>Nature</em> 533: 26.</p>
+</div>
 <div id="ref-baumer2014r">
 <p>Baumer, Ben, Mine Cetinkaya-Rundel, Andrew Bray, Linda Loi, and Nicholas J Horton. 2014. “R Markdown: Integrating a Reproducible Analysis Tool into Introductory Statistics.” <em>arXiv Preprint arXiv:1402.1894</em>.</p>
+</div>
+<div id="ref-benjamin2017redefine">
+<p>Benjamin, Daniel J, James O Berger, Magnus Johannesson, Brian A Nosek, E-J Wagenmakers, Richard Berk, Kenneth A Bollen, et al. 2017. “Redefine Statistical Significance.” <em>Nature Human Behaviour</em>. Nature Publishing Group, 1.</p>
 </div>
 <div id="ref-UMD2017">
 <p>Bravo, Hector Corrada. 2017. <em>Introduction to Data Science, U Maryland Cmsc 320</em>. <a href="http://www.hcbravo.org/IntroDataSci/" class="uri">http://www.hcbravo.org/IntroDataSci/</a>.</p>
@@ -338,8 +451,14 @@ div.tocify {
 <div id="ref-UNCIntroDS2017">
 <p>Carmichael, Ian. 2017. <em>Introduction to Data Science, Unc Stor 390</em>. <a href="https://idc9.github.io/stor390/" class="uri">https://idc9.github.io/stor390/</a>.</p>
 </div>
+<div id="ref-american2015can">
+<p>Cell Biology, American Society for, and others. 2015. “How Can Scientists Enhance Rigor in Conducting Basic Research and Reporting Research Results? A White Paper from the American Society for Cell Biology.”</p>
+</div>
 <div id="ref-cleveland1985graphical">
 <p>Cleveland, William S, and Robert McGill. 1985. “Graphical Perception and Graphical Methods for Analyzing Scientific Data.” <em>Science</em> 229 (4716). American Association for the Advancement of Science: 828–33.</p>
+</div>
+<div id="ref-open2015estimating">
+<p>Collaboration, Open Science, and others. 2015. “Estimating the Reproducibility of Psychological Science.” <em>Science</em> 349 (6251). American Association for the Advancement of Science: aac4716.</p>
 </div>
 <div id="ref-donoho2015fifty">
 <p>Donoho, David. 2017. “50 Years of Data Science.” In <em>Princeton Nj, Tukey Centennial Workshop</em>.</p>
@@ -349,6 +468,12 @@ div.tocify {
 </div>
 <div id="ref-gandrud2016reproducible">
 <p>Gandrud, Christopher. 2016. <em>Reproducible Research with R and R Studio</em>. CRC Press.</p>
+</div>
+<div id="ref-grange2018justify">
+<p>Grange, JA, D Lakens, F Adolfi, C Albers, F Anvari, M Apps, S Argamon, et al. 2018. “Justify Your Alpha.” <em>Nature Human Behavior</em>. Nature.</p>
+</div>
+<div id="ref-hastie2010rational">
+<p>Hastie, Reid, and Robyn M Dawes. 2010. <em>Rational Choice in an Uncertain World: The Psychology of Judgment and Decision Making</em>. Sage.</p>
 </div>
 <div id="ref-BYU2017">
 <p>Hathaway, John. 2017. <em>Data Wrangling, Exploration, and Visualization, Byu-Idaho Math/Cs 335</em>. <a href="https://byuistats.github.io/M335/index.html" class="uri">https://byuistats.github.io/M335/index.html</a>.</p>
@@ -362,11 +487,32 @@ div.tocify {
 <div id="ref-Harvard2017">
 <p>———. 2017b. <em>Introduction to Data Science, Bst 260</em>. <a href="https://github.com/datasciencelabs/2017" class="uri">https://github.com/datasciencelabs/2017</a>.</p>
 </div>
+<div id="ref-ioannidis2005most">
+<p>Ioannidis, John PA. 2005. “Why Most Published Research Findings Are False.” <em>PLoS Medicine</em> 2 (8). Public Library of Science: e124.</p>
+</div>
 <div id="ref-isaacson2014innovators">
 <p>Isaacson, Walter. 2014. <em>The Innovators: How a Group of Inventors, Hackers, Geniuses and Geeks Created the Digital Revolution</em>. Simon; Schuster.</p>
 </div>
+<div id="ref-lakatos1969falsification">
+<p>Lakatos, Imre. 1969. “Falsification and the Methodology of Scientific Research Programmes.” <em>Criticism and the Growth of Knowledge. Cambridge University Press: Cambridge</em>.</p>
+</div>
+<div id="ref-lanning1987some">
+<p>Lanning, Kevin. 1987. “Some Reasons for Distinguishing Between ‘Non-Normative Response’ and ‘Irrational Decision’.” <em>The Journal of Psychology</em> 121 (2). Taylor &amp; Francis: 109–17.</p>
+</div>
+<div id="ref-leek2015statistics">
+<p>Leek, Jeffrey T, and Roger D Peng. 2015. “Statistics: P Values Are Just the Tip of the Iceberg.” <em>Nature</em> 520 (7549): 612.</p>
+</div>
+<div id="ref-loevinger1957objective">
+<p>Loevinger, Jane. 1957. “Objective Tests as Instruments of Psychological Theory.” <em>Psychological Reports</em> 3 (3). SAGE Publications Sage CA: Los Angeles, CA: 635–94.</p>
+</div>
 <div id="ref-NebraskaDS2017">
 <p>Majumder, Mahbubul. 2014. <em>Introduction to Data Science, Nebraska Dsc 256</em>. <a href="http://mamajumder.github.io/data-science/fall-2014/" class="uri">http://mamajumder.github.io/data-science/fall-2014/</a>.</p>
+</div>
+<div id="ref-mcshane2017abandon">
+<p>McShane, Blakeley B, David Gal, Andrew Gelman, Christian Robert, and Jennifer L Tackett. 2017. “Abandon Statistical Significance.” <em>arXiv Preprint arXiv:1709.07588</em>.</p>
+</div>
+<div id="ref-miguel2014promoting">
+<p>Miguel, Edward, Colin Camerer, Katherine Casey, Joshua Cohen, Kevin M Esterling, Alan Gerber, Rachel Glennerster, et al. 2014. “Promoting Transparency in Social Science Research.” <em>Science</em> 343 (6166). American Association for the Advancement of Science: 30–31.</p>
 </div>
 <div id="ref-munafo2017manifesto">
 <p>Munafò, Marcus R, Brian A Nosek, Dorothy VM Bishop, Katherine S Button, Christopher D Chambers, Nathalie Percie du Sert, Uri Simonsohn, Eric-Jan Wagenmakers, Jennifer J Ware, and John PA Ioannidis. 2017. “A Manifesto for Reproducible Science.” <em>Nature Human Behaviour</em> 1. Nature Publishing Group: 0021.</p>
@@ -398,8 +544,17 @@ div.tocify {
 <div id="ref-Princeton2017">
 <p>Storey, John. 2017. <em>Introduction to Data Science, Princeton Sml 201</em>. <a href="https://github.com/SML201" class="uri">https://github.com/SML201</a>.</p>
 </div>
+<div id="ref-szucs2017null">
+<p>Szucs, Denes, and John Ioannidis. 2017. “When Null Hypothesis Significance Testing Is Unsuitable for Research: A Reassessment.” <em>Frontiers in Human Neuroscience</em> 11. Frontiers: 390.</p>
+</div>
 <div id="ref-tufte2001visual">
 <p>Tufte, Edward R. 2001. <em>The Visual Display of Quantitative Information</em>. 2nd ed. Cheshire, CT: Graphics Press.</p>
+</div>
+<div id="ref-tversky1974judgment">
+<p>Tversky, Amos, and Daniel Kahneman. 1974. “Judgment Under Uncertainty: Heuristics and Biases.” <em>Science</em> 185 (4157). American association for the advancement of science: 1124–31.</p>
+</div>
+<div id="ref-wainer2007most">
+<p>Wainer, Howard. 2007. “The Most Dangerous Equation.” <em>American Scientist</em> 95 (3). Sigma XI-The Scientific Research Society: 249.</p>
 </div>
 <div id="ref-wainer1981graphical">
 <p>Wainer, Howard, and David Thissen. 1981. “Graphical Data Analysis.” <em>ETS Research Report Series</em> 1981 (1). Wiley Online Library: 191–241.</p>

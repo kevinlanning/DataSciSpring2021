@@ -11,7 +11,7 @@
 
 
 
-<title>Honors Intro Data Science and Lab</title>
+<title>Honors Intro Data Science</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -73,8 +73,14 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -90,7 +96,6 @@ body {
   padding-top: 57px;
   margin-top: -57px;
 }
-
 .section h2 {
   padding-top: 57px;
   margin-top: -57px;
@@ -110,6 +115,43 @@ body {
 .section h6 {
   padding-top: 57px;
   margin-top: -57px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -131,18 +173,77 @@ $(document).ready(function () {
 });
 </script>
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
 });
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
 </script>
 
 <!-- code folding -->
-
 
 
 
@@ -164,25 +265,16 @@ $(document).ready(function () {
   <a href="index.html">Honors intro to data sci</a>
 </li>
 <li>
-  <a href="invitation.html">What?</a>
-</li>
-<li>
   <a href="syllabus.html">Syllabus</a>
 </li>
 <li>
   <a href="schedule.html">Schedule</a>
 </li>
 <li>
-  <a href="prereqs.html">Prereqs in R</a>
-</li>
-<li>
-  <a href="lab.html">Lab</a>
-</li>
-<li>
   <a href="references.html">References</a>
 </li>
 <li>
-  <a href="https://faudatascience.slack.com">    Slack</a>
+  <a href="https://honorscollege.slack.com">    Slack</a>
 </li>
 <li>
   <a href="https://kevinlanning.github.io/DataSciLibArts/">KL Notes</a>
@@ -199,23 +291,21 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Honors Intro Data Science and Lab</h1>
+<h1 class="title toc-ignore">Honors Intro Data Science</h1>
 <h3 class="subtitle"><em>Wilkes Honors College of FAU</em></h3>
 
 </div>
 
 
-<p>This site (<a href="https://kevinlanning.github.io/DataSciSpring2018/" class="uri">https://kevinlanning.github.io/DataSciSpring2018/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2018, taught by Professors Kevin Lanning and Warren McGovern, and the lab <em>Intro to Data Science with R</em> taught by Dr. Lanning. It is a work in progress, and will be continuously revised throughout the term.</p>
-<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/DataSciSpring2018" class="uri">https://github.com/kevinlanning/DataSciSpring2018</a>. It was created using <a href="http://rmarkdown.rstudio.com/">R Markdown</a>, with assistance from a <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">post by Aleszu Bajak</a>.</p>
+<p>This site (<a href="https://kevinlanning.github.io/DataSciSpring2019/" class="uri">https://kevinlanning.github.io/DataSciSpring2019/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2019, taught by Professors Kevin Lanning and Terje Hoim. It is a work in progress, and will be continuously revised throughout the term.</p>
+<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/DataSciSpring2019" class="uri">https://github.com/kevinlanning/DataSciSpring2019</a>. It was created using <a href="http://rmarkdown.rstudio.com/">R Markdown</a>, with assistance from a <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">post by Aleszu Bajak</a>.</p>
 <div id="some-additional-resources" class="section level4">
 <h4>Some additional resources</h4>
 <p><a href="https://www.datacamp.com/">DataCamp</a> has generously provided full access to their entire online curriculum for students in this class.</p>
-<p>The <a href="http://www.datacarpentry.org/lessons/">Datacarpentry site</a> includes lessons aimed at fostering data literacy in content areas including ecology, genomics, and other areas.</p>
-<p>For those interested in data visualization in business and applied settings, Tableau is a popular tool, and is also free for students <a href="https://www.tableau.com/academic/students" class="uri">https://www.tableau.com/academic/students</a>.</p>
 <p>The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile (<a href="https://www.coursera.org/specializations/jhu-data-science" class="uri">https://www.coursera.org/specializations/jhu-data-science</a>).</p>
 <p>If you use these (or other) resources, please let your classmates know on Slack.</p>
-<p>Our Slack workspace is at <a href="https://faudatascience.slack.com" class="uri">https://faudatascience.slack.com</a>, and Lanning’s notes are at <a href="https://kevinlanning.github.io/DataSciLibArts/" class="uri">https://kevinlanning.github.io/DataSciLibArts/</a>. These links are also in the navigation bar above</p>
-<p>- <em>revised February 02, 2018</em></p>
+<p>Our Slack workspace is at <a href="https://honorscollege.slack.com" class="uri">https://honorscollege.slack.com</a>, and Lanning’s notes are at <a href="https://kevinlanning.github.io/DataSciLibArts/" class="uri">https://kevinlanning.github.io/DataSciLibArts/</a>. These links are also in the navigation bar above</p>
+<p>- <em>revised December 21, 2018</em></p>
 </div>
 
 
