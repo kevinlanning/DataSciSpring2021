@@ -1,25 +1,21 @@
-name: "Intro to Data Science"
+name: "intro to data science"
 output_dir: "."
 navbar:
   title: ""
   left:
-    - text: "Honors intro to data sci"
+    - text: "honors intro data sci"
       href: index.html
-    - text: "Syllabus"
-      href: syllabus.html
-    - text: "Schedule"
+    - text: "syllabus"
+      href: syllabus.htm
+    - text: "schedule"
       href: schedule.html
-    - text: "References"
+    - text: "references"
       href: references.html
-    - text: "    Slack"
+    - text: "slack"
       href: https://honorscollege.slack.com
-    - text: "KL Notes" 
+    - text: "Wickham r4DS" 
+      href: https://r4ds.had.co.nz/introduction.html
+    - text: "Lanning notes" 
       href: https://kevinlanning.github.io/DataSciLibArts/
-output:
-  html_document:
-    toc: true
-    toc_float: yes
-    toc_depth: 2
-    theme: spacelab 
-    highlight: pygments
-      
+
+  

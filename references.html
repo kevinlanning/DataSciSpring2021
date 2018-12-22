@@ -15,15 +15,29 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
@@ -91,33 +105,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 52px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -250,101 +264,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -360,31 +279,25 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Honors intro to data sci</a>
+  <a href="index.html">honors intro data sci</a>
 </li>
 <li>
-  <a href="invitation.html">What?</a>
+  <a href="syllabus.htm">syllabus</a>
 </li>
 <li>
-  <a href="syllabus.html">Syllabus</a>
+  <a href="schedule.html">schedule</a>
 </li>
 <li>
-  <a href="schedule.html">Schedule</a>
+  <a href="references.html">references</a>
 </li>
 <li>
-  <a href="prereqs.html">Prereqs in R</a>
+  <a href="https://honorscollege.slack.com">slack</a>
 </li>
 <li>
-  <a href="lab.html">Lab</a>
+  <a href="https://r4ds.had.co.nz/introduction.html">Wickham r4DS</a>
 </li>
 <li>
-  <a href="references.html">References</a>
-</li>
-<li>
-  <a href="https://faudatascience.slack.com">    Slack</a>
-</li>
-<li>
-  <a href="https://kevinlanning.github.io/DataSciLibArts/">KL Notes</a>
+  <a href="https://kevinlanning.github.io/DataSciLibArts/">Lanning notes</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -437,13 +350,13 @@ div.tocify {
 <p>Bravo, Hector Corrada. 2017. <em>Introduction to Data Science, U Maryland Cmsc 320</em>. <a href="http://www.hcbravo.org/IntroDataSci/" class="uri">http://www.hcbravo.org/IntroDataSci/</a>.</p>
 </div>
 <div id="ref-broman2017data">
-<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, no. just-accepted. Taylor &amp; Francis.</p>
+<p>Broman, Karl W, and Kara H Woo. 2017. “Data Organization in Spreadsheets.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis.</p>
 </div>
 <div id="ref-practicalDS2017collection">
 <p>Bryan, Jennifer. 2017. “Practical Data Science for Stats - a Peer J Collection.” In.</p>
 </div>
 <div id="ref-UBCWrangling2017">
-<p>Bryan, Jenny et al. 2017. <em>Data Wrangling, Exploration, and Analysis with R, Ubc Stat 545a and 547m</em>. <a href="https://github.com/STAT545-UBC" class="uri">https://github.com/STAT545-UBC</a>.</p>
+<p>Bryan, Jenny et al. 2017. <em>Data Wrangling, Exploration, and Analysis with R, Ubc Stat 545A and 547M</em>. <a href="https://github.com/STAT545-UBC" class="uri">https://github.com/STAT545-UBC</a>.</p>
 </div>
 <div id="ref-bryan2017git">
 <p>Bryan, Jenny, and the STAT 545 TAs. 2017. “Happy Git and Github for the useR.” <a href="http://happygitwithr.com/" class="uri">http://happygitwithr.com/</a>.</p>
@@ -482,7 +395,7 @@ div.tocify {
 <p>Healy, Kieran. 2017. “Data Visualization for Social Science: A Practical Introduction with R and Ggplot2.” <a href="https://socviz.co" class="uri">https://socviz.co</a>.</p>
 </div>
 <div id="ref-hicks2017guide">
-<p>Hicks, Stephanie C, and Rafael A Irizarry. 2017a. “A Guide to Teaching Data Science.” <em>The American Statistician</em>, no. just-accepted. Taylor &amp; Francis: 00–00.</p>
+<p>Hicks, Stephanie C, and Rafael A Irizarry. 2017a. “A Guide to Teaching Data Science.” <em>The American Statistician</em>, nos. just-accepted. Taylor &amp; Francis: 00–00.</p>
 </div>
 <div id="ref-Harvard2017">
 <p>———. 2017b. <em>Introduction to Data Science, Bst 260</em>. <a href="https://github.com/datasciencelabs/2017" class="uri">https://github.com/datasciencelabs/2017</a>.</p>
@@ -533,7 +446,7 @@ div.tocify {
 <p>Roger Peng, Jeff Leek, Brian Caffo. 2017. <em>Data Science Certificate Program, Johns Hopkins University / Coursera</em>. <a href="https://github.com/DataScienceSpecialization/courses" class="uri">https://github.com/DataScienceSpecialization/courses</a>.</p>
 </div>
 <div id="ref-silge2017text">
-<p>Silge, Julia, and David Robinson. 2017. <em>Text Mining with R: A Tidy Approach</em>. “ O’Reilly Media, Inc.” <a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a>.</p>
+<p>Silge, Julia, and David Robinson. 2017. <em>Text Mining with R: A Tidy Approach</em>. &quot; O’Reilly Media, Inc.&quot;. <a href="https://www.tidytextmining.com/" class="uri">https://www.tidytextmining.com/</a>.</p>
 </div>
 <div id="ref-stanton2013introds">
 <p>Stanton, Jeffrey M. 2013. <em>Introduction to Data Science</em>. CRC Press. <a href="https://archive.org/details/DataScienceBookV3" class="uri">https://archive.org/details/DataScienceBookV3</a>.</p>
@@ -584,8 +497,6 @@ div.tocify {
 
 
 
-</div>
-</div>
 
 </div>
 
