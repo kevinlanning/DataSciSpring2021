@@ -13,9 +13,9 @@ navbar:
       href: references.html
     - text: "slack"
       href: https://honorscollege.slack.com
-    - text: "Wickham r4DS" 
+    - text: "R4DS (Wickham)" 
       href: https://r4ds.had.co.nz/introduction.html
-    - text: "Lanning notes" 
+    - text: "dsla (Lanning)" 
       href: https://kevinlanning.github.io/DataSciLibArts/
 
   
