@@ -6,7 +6,7 @@ navbar:
     - text: "honors intro data sci"
       href: index.html
     - text: "syllabus"
-      href: syllabus.html
+      href: syllabus.htm
     - text: "schedule"
       href: schedule.html
     - text: "references"
