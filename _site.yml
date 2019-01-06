@@ -8,7 +8,7 @@ navbar:
     - text: "syllabus"
       href: syllabus.html
     - text: "schedule"
-      href: schedule.html
+      href: http://bit.ly/DataSciSched2019
     - text: "references"
       href: references.html
     - text: "slack"
