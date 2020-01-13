@@ -3,7 +3,6 @@ title: 'syllabus: honors introduction to data science'
 author: ''
 date: ''
 output:
-  pdf_document: default
   html_document: default
 ---
 
