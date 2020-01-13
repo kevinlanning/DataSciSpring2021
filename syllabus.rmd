@@ -13,7 +13,7 @@ This document is current as of `r Sys.Date()`. An updated version may be found a
 
 This is **COP 3076 Section 1**. It is a 3 credit class offered in the **Spring 2020** term. The class meets **MW 1230-150 in AD 102**. There is no lab. 
 
-The professor is Kevin Lanning, whose office is on the Jupiter campus of FAU in WB 213. My office hours are **TR 1-4.** My office phone is (561) 799-8652, but it is quicker to reach me via email at lanning@fau.edu.
+The professor is Kevin Lanning, whose office is on the Jupiter campus of FAU in WB 213. My office hours are **TR 1-4.** I encourage you to book an appointment at https://calendly.com/kevin-lanning/officehours. My office phone is (561) 799-8652, but it is quicker to reach me via email at lanning@fau.edu.
 
 **course prerequisites / co-requisites**: STA 2023 (or equivalent) or permission of instructor is a prerequisite.
 
