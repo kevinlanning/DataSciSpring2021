@@ -1,0 +1,141 @@
+---
+title: "gradingfromsheets"
+output: html_document
+---
+# Combining quizzes
+
+Get, clean, and combine Google sheets.
+
+```{r setup}
+library(tidyverse)
+library(purrr)
+library(magrittr)
+library(googlesheets)
+# allow R to read my Google sheets
+gs_auth(token = NULL, new_user = FALSE,
+        key = getOption("googlesheets.client_id"),
+        secret = getOption("googlesheets.client_secret"),
+        cache = getOption("googlesheets.httr_oauth_cache"), verbose = TRUE)
+# list my Google sheets
+my_sheets <- gs_ls()
+# pull out only the quizzes, and order these by number
+dataSciSheets <- my_sheets %>% 
+    filter(str_detect(sheet_title, "DataSci2019Quiz")) %>% 
+    arrange(sheet_title)
+
+# a function for cleaning the datasheets
+# we will use this twice
+cleansheet <- function(datasheet) {
+    gs_key(datasheet) %>%
+# read it as a google sheet
+            gs_read() %>% 
+# change all of the text to lowercase to increases hits for matching last name
+        mutate_all(tolower) %>% 
+# get rid of whitespace in names variable
+        rename ("name" = `Your last name`) %>% 
+# puts newest response on top
+        arrange(desc(Timestamp)) %>% 
+# fix a few names that are spelled inconsistently
+        mutate(name = ifelse(name == "mc comie","mccomie", name)) %>% 
+        mutate(name = ifelse(name == "kingslet","kingsley", name)) %>% 
+# for each quiz, keep only the last response if someone has responded > 1 time
+        distinct(name, .keep_all = TRUE)
+}
+# initialize on the first quiz
+data1 <- cleansheet(dataSciSheets$sheet_key[1])
+# run successively on remaining quizzes and merge together
+# pretty sure that this could be rewritten more efficiently
+for (i in (2: nrow(dataSciSheets))) {
+    data2 <- cleansheet(dataSciSheets$sheet_key[i]) 
+    data1 <- merge(data1,data2,by="name", all = TRUE)
+}
+# for duplicate qs which appear in multiple quizzes, this disambiguates their names
+data1 <- as_tibble(data1, .name_repair = "unique") %>% 
+# get rid of junk names (questions about workstations)
+    filter (name != "1")  %>%  
+    filter (name != "3") %>% 
+    filter (name != "5") %>% 
+    filter (name != "station3") %>% 
+    filter (name != "table")
+table(data1$name)
+varlist <- names(data1)
+# write to external file to inspect and choose relevant columns
+write.csv(varlist,"vars.csv")
+```
+
+## a function for changing my weird time variables to hours
+```{r}
+codeStudyTime <- function (timevar) {
+  ifelse(timevar == "um... none", 0,
+    ifelse(timevar == "less than 30 mins", .25,
+      ifelse(timevar == "31 - 60 mins", .75,
+        ifelse(timevar == "61 - 120 mins", 1.5,
+          ifelse(timevar == "between 1 and 3 hours", 2,
+            ifelse(timevar == "121 - 180 mins", 2.5,
+              ifelse(timevar == "181 - 240 mins", 3.5,
+                ifelse(timevar == "between 3 and 5 hours", 4,
+                  ifelse(timevar == "more than 240 mins", 6, 
+                    ifelse(timevar == "between 5 and 8 hours",
+                           6.5, NA)
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+}
+```
+
+
+## "Grade" quizzes
+
+How many quizzes, how much time studying?
+```{r}
+# grab the timestamps for all quizzes
+nquizzes <- data1[,c(2,44,57,26,52,65,79)] 
+# this counts the number of quizzes completed
+data1$nquizzes <- rowSums(!is.na(nquizzes))
+
+# this applies the codeStudyTime function and reduces it to a single variable
+timevars<-  data1[,c(36, 11,60,48,55,83)] 
+
+timeStudying <- timevars %>% 
+    map_df(codeStudyTime) %>% 
+    replace(is.na(.), "0") #%>% 
+# change it back to a number 
+timeStudying %<>% mutate_if(is.character,as.numeric) 
+data1$timeStudying<-rowSums(timeStudying)
+```
+
+A few recodes for correct answers
+
+Code is kludgey here - 
+```{r}
+scores <- data1[,c(1,86,87)]
+scores$q49 <- as.numeric(ifelse(data1[49] == 
+ "napoleon's march on moscow, the explosion of a space shuttle",
+ 1,
+    ifelse(data1[49] == "napoleon's march on moscow",
+           .5, 
+           NA)))
+scores$q68 <- ifelse(data1[68] == 
+ "de moivre's equation describing the standard error of the mean",
+ 1,NA)
+scores$q72 <- ifelse(data1[72] == "yes", 1,
+              ifelse(data1[72] == "kind of", .5, NA))
+scores$q75 <- ifelse(data1[75] == "p (b) > p (a)", 1, NA)
+# treat all missing as 0 and sum four qs
+scores %<>%  replace(is.na(.), 0) %<>%   
+    mutate (.,knowledgeQ = (q49 + q68 + q72 + q75))
+scores$Zattend <-round(scale(scores[2], center=TRUE, scale=TRUE),2)
+scores$Zeffort <-round(scale(scores[3], center=TRUE, scale=TRUE),2)
+scores$Zknowledge <-round(scale(scores[8], center=TRUE, scale=TRUE),2)
+# add response to "challenge" q
+scores <- cbind(scores,data1[85])
+write.csv(scores,"currentgrades.csv")
+# spreadsheet is annotated by hand
+```
+

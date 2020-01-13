@@ -1,0 +1,37 @@
+---
+title: "assignment02132019"
+author: "Lanning"
+date: "February 13, 2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+## Diamonds
+
+Get libraries, load data, and look at it.
+```{r setup}
+library(ggplot2)
+library(dplyr)
+data("diamonds")
+str(diamonds)
+```
+
+From R4DS, Chapter 27.
+Taking the diamonds dataset, "Add a section that explores how diamond sizes vary by cut, colour, and clarity. Assume you’re writing a report for someone who doesn’t know R, and instead of setting echo = FALSE on each chunk, set a global option."
+
+## Begin with looking only at little diamonds
+```{r}
+smaller <- diamonds %>% 
+  filter(carat <= 2.5)
+```
+
+We have data about `r nrow(diamonds)` diamonds. Only 
+`r nrow(diamonds) - nrow(smaller)` are larger than
+2.5 carats. The distribution of the remainder is shown
+below:
+
+```{r, echo = FALSE}
+smaller %>% 
+  ggplot(aes(carat)) + 
+  geom_freqpoly(binwidth = 0.01)
+```

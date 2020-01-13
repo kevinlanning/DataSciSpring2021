@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>gradingfromsheets</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">honors intro data sci</a>
+</li>
+<li>
+  <a href="syllabus.htm">syllabus</a>
+</li>
+<li>
+  <a href="schedule.html">schedule</a>
+</li>
+<li>
+  <a href="references.html">references</a>
+</li>
+<li>
+  <a href="https://honorscollege.slack.com">slack</a>
+</li>
+<li>
+  <a href="https://r4ds.had.co.nz/introduction.html">R4DS (Wickham)</a>
+</li>
+<li>
+  <a href="https://kevinlanning.github.io/DataSciLibArts/">dsla (Lanning)</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">gradingfromsheets</h1>
+
+</div>
+
+
+<div id="combining-quizzes" class="section level1">
+<h1>Combining quizzes</h1>
+<p>Get, clean, and combine Google sheets.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages ------------------------------------ tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.1.0     v purrr   0.3.0
+## v tibble  2.0.1     v dplyr   0.7.8
+## v tidyr   0.8.2     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.3.0</code></pre>
+<pre><code>## -- Conflicts --------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(purrr)
+library(magrittr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;magrittr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     set_names</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre class="r"><code>library(googlesheets)
+# allow R to read my Google sheets
+gs_auth(token = NULL, new_user = FALSE,
+        key = getOption(&quot;googlesheets.client_id&quot;),
+        secret = getOption(&quot;googlesheets.client_secret&quot;),
+        cache = getOption(&quot;googlesheets.httr_oauth_cache&quot;), verbose = TRUE)
+# list my Google sheets
+my_sheets &lt;- gs_ls()
+# pull out only the quizzes, and order these by number
+dataSciSheets &lt;- my_sheets %&gt;% 
+    filter(str_detect(sheet_title, &quot;DataSci2019Quiz&quot;)) %&gt;% 
+    arrange(sheet_title)
+
+# a function for cleaning the datasheets
+# we will use this twice
+cleansheet &lt;- function(datasheet) {
+    gs_key(datasheet) %&gt;%
+# read it as a google sheet
+            gs_read() %&gt;% 
+# change all of the text to lowercase to increases hits for matching last name
+        mutate_all(tolower) %&gt;% 
+# get rid of whitespace in names variable
+        rename (&quot;name&quot; = `Your last name`) %&gt;% 
+# puts newest response on top
+        arrange(desc(Timestamp)) %&gt;% 
+# fix a few names that are spelled inconsistently
+        mutate(name = ifelse(name == &quot;mc comie&quot;,&quot;mccomie&quot;, name)) %&gt;% 
+        mutate(name = ifelse(name == &quot;kingslet&quot;,&quot;kingsley&quot;, name)) %&gt;% 
+# for each quiz, keep only the last response if someone has responded &gt; 1 time
+        distinct(name, .keep_all = TRUE)
+}
+# initialize on the first quiz
+data1 &lt;- cleansheet(dataSciSheets$sheet_key[1])</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz1  (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   .default = col_character()
+## )</code></pre>
+<pre><code>## See spec(...) for full column specifications.</code></pre>
+<pre class="r"><code># run successively on remaining quizzes and merge together
+# pretty sure that this could be rewritten more efficiently
+for (i in (2: nrow(dataSciSheets))) {
+    data2 &lt;- cleansheet(dataSciSheets$sheet_key[i]) 
+    data1 &lt;- merge(data1,data2,by=&quot;name&quot;, all = TRUE)
+}</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz2 (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Today&#39;s date` = col_character(),
+##   `Your last name` = col_character(),
+##   `Your first name` = col_character(),
+##   `The job market in data science is booming right now.  How likely is it that, after getting your WHC degree, that you will apply to one or more graduate programs in this (or closely related) areas?` = col_double(),
+##   `Which of the following possible outside speakers would you like to see visit (in person or via Skype/Hangout) the class. Typical meeting would be for about 1/2 class. [M. Smirnov from Data Sci at MPFI (Smirnov is overseeing their new, small, growing, data sci in neurosci curriculum)]` = col_character(),
+##   `Which of the following possible outside speakers would you like to see visit (in person or via Skype/Hangout) the class. Typical meeting would be for about 1/2 class. [Someone from the PB Post talking about Data Journalism]` = col_character(),
+##   `Which of the following possible outside speakers would you like to see visit (in person or via Skype/Hangout) the class. Typical meeting would be for about 1/2 class. [A panel of WHC alums talking about data sci and their jobs]` = col_character(),
+##   `Which of the following possible outside speakers would you like to see visit (in person or via Skype/Hangout) the class. Typical meeting would be for about 1/2 class. [Pat McDonald of New College on health analytics and the Masters in Data Science]` = col_character(),
+##   `Which of the following possible outside speakers would you like to see visit (in person or via Skype/Hangout) the class. Typical meeting would be for about 1/2 class. [Brian MacDonald of the Florida Panthers on prediction problems in the real world]` = col_character(),
+##   `Which of the following possible outside speakers would you like to see visit (in person or via Skype/Hangout) the class. Typical meeting would be for about 1/2 class. [Someone from FAU College of Engineering on the Masters in Data Analytics/Data Science]` = col_character(),
+##   `How much time did you spend working with R/R Studio since our last meeting?` = col_character(),
+##   `Which of the following sources did you learn from (check all that apply)?` = col_character(),
+##   `Did you get stuck anywhere? What was difficult or confusing for you?` = col_character(),
+##   `What was the most important/interesting thing that you learned, and where did you learn it from?` = col_character(),
+##   `Did you spend any time on our Slack workspace this week?` = col_character(),
+##   `Did you watch the Grolemund video on R studio (in Chapter 3)?` = col_character(),
+##   `Have you downloaded and played with a Markdown editor?` = col_character(),
+##   `What Markdown editor did you choose, and how much do you think you might use it in the future?` = col_character()
+## )</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz3 (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Today&#39;s date` = col_character(),
+##   `Your last name` = col_character(),
+##   `Your first name` = col_character(),
+##   `How far have you read/studied &quot;Data Science for the Liberal Arts&quot; (Lanning)?` = col_character(),
+##   `How much time have you spent working with R/R Studio since our last meeting?` = col_character(),
+##   `Which of the following is/are depicted by data visualizations in Lanning&#39;s chapter on data visualizations? (check all that apply)` = col_character(),
+##   `Last meeting, you were asked to come up with and try to answer an interesting question about the movie dataset. Summarize your work here:` = col_character(),
+##   `Finally, do you have any advice to your classmates that you would like to share?` = col_character()
+## )</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz4 (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Today&#39;s date` = col_character(),
+##   `Your last name` = col_character(),
+##   `Your first name` = col_character(),
+##   `How much time have you spent working with R/R Studio since our last meeting?` = col_character(),
+##   `Did you study and make a graph  from one of the built-in datasets in R studio?` = col_character()
+## )</code></pre>
+<pre><code>## Warning in merge.data.frame(data1, data2, by = &quot;name&quot;, all = TRUE): column
+## names &#39;Timestamp.x&#39;, &#39;Today&#39;s date.x&#39;, &#39;Your first name.x&#39;, &#39;Timestamp.y&#39;,
+## &#39;Today&#39;s date.y&#39;, &#39;Your first name.y&#39; are duplicated in the result</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz5 (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Today&#39;s date` = col_character(),
+##   `Your last name` = col_character(),
+##   `Your first name` = col_character(),
+##   `How much time have you spent working with R/R Studio and/or on reading since our last meeting?` = col_character(),
+##   `Have you made any cool graphs in ggplot?` = col_character(),
+##   `Where did you get stuck, and what did you do?` = col_character(),
+##   `Describe your cool graph` = col_character(),
+##   `Take a screenshot and upload it here...` = col_character()
+## )</code></pre>
+<pre><code>## Warning in merge.data.frame(data1, data2, by = &quot;name&quot;, all = TRUE): column
+## names &#39;Timestamp.x&#39;, &#39;Today&#39;s date.x&#39;, &#39;Your first name.x&#39;, &#39;Timestamp.y&#39;,
+## &#39;Today&#39;s date.y&#39;, &#39;Your first name.y&#39; are duplicated in the result</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz6 (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Today&#39;s date` = col_character(),
+##   `Your last name` = col_character(),
+##   `Your first name` = col_character(),
+##   `What, according to Wainer, is the &quot;most dangerous equation&quot;?` = col_character(),
+##   `Cite an example of how someone could be misled by failing to appreciate regression to the mean` = col_character(),
+##   `Cite an example of how someone could be misled by failing to appreciate de Moivre&#39;s equation` = col_character(),
+##   `How far did you get in chapter 7 (on probability and statistics)?` = col_character(),
+##   `Did you play with any of the code and concepts in chapter 7?` = col_character(),
+##   `What was your favorite thing in the reading?` = col_character(),
+##   `Say that there are more accidents on I-95 than any other road in Palm Beach County.  Does this make it the most dangerous road? Why or why not?` = col_character(),
+##   `In general, if P (A|B) &lt; P (B|A), what must be true of the relationship of P (A) to P (B)?` = col_character(),
+##   `Provide an example of a problem in which one samples from a population without replacement.` = col_character(),
+##   `In 2016, just prior to the election, assume that Trump was predicted to have a 30% chance to win Michigan, a 35% chance to win Wisconsin, a 25% chance to win Pennsylvania, a 55% chance to win Ohio, and a 52% chance to win Florida.  Again, just prior to the election, what was the probability that he would win all five states, and why?` = col_character(),
+##   `What is a Monte Carlo simulation? Give an example of how and why would you do this in R.` = col_character()
+## )</code></pre>
+<pre><code>## Warning in merge.data.frame(data1, data2, by = &quot;name&quot;, all = TRUE): column
+## names &#39;Timestamp.x&#39;, &#39;Today&#39;s date.x&#39;, &#39;Your first name.x&#39;, &#39;Timestamp.y&#39;,
+## &#39;Today&#39;s date.y&#39;, &#39;Your first name.y&#39;, &#39;Timestamp.x&#39;, &#39;Today&#39;s date.x&#39;,
+## &#39;Your first name.x&#39;, &#39;Timestamp.y&#39;, &#39;Today&#39;s date.y&#39;, &#39;Your first name.y&#39;
+## are duplicated in the result</code></pre>
+<pre><code>## Sheet successfully identified: &quot;IntroDataSci2019Quiz7 (Responses)&quot;</code></pre>
+<pre><code>## Accessing worksheet titled &#39;Form Responses 1&#39;.</code></pre>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Timestamp = col_character(),
+##   `Email Address` = col_character(),
+##   `Today&#39;s date` = col_character(),
+##   `Your last name` = col_character(),
+##   `Your first name` = col_character(),
+##   `Reading?` = col_character(),
+##   `share what you found to be most interesting or confusing ...` = col_character(),
+##   `Do you want to get started on a &quot;data challenge&quot;?` = col_character()
+## )</code></pre>
+<pre><code>## Warning in merge.data.frame(data1, data2, by = &quot;name&quot;, all = TRUE): column
+## names &#39;Timestamp.x&#39;, &#39;Today&#39;s date.x&#39;, &#39;Your first name.x&#39;, &#39;Timestamp.y&#39;,
+## &#39;Today&#39;s date.y&#39;, &#39;Your first name.y&#39;, &#39;Timestamp.x&#39;, &#39;Today&#39;s date.x&#39;,
+## &#39;Your first name.x&#39;, &#39;Timestamp.y&#39;, &#39;Today&#39;s date.y&#39;, &#39;Your first name.y&#39;
+## are duplicated in the result</code></pre>
+<pre class="r"><code># for duplicate qs which appear in multiple quizzes, this disambiguates their names
+data1 &lt;- as_tibble(data1, .name_repair = &quot;unique&quot;) %&gt;% 
+# get rid of junk names (questions about workstations)
+    filter (name != &quot;1&quot;)  %&gt;%  
+    filter (name != &quot;3&quot;) %&gt;% 
+    filter (name != &quot;5&quot;) %&gt;% 
+    filter (name != &quot;station3&quot;) %&gt;% 
+    filter (name != &quot;table&quot;)</code></pre>
+<pre><code>## New names:
+## * Timestamp.x -&gt; Timestamp.x..2
+## * `Today&#39;s date.x` -&gt; `Today&#39;s date.x..3`
+## * `Your first name.x` -&gt; `Your first name.x..4`
+## * Timestamp.y -&gt; Timestamp.y..26
+## * `Today&#39;s date.y` -&gt; `Today&#39;s date.y..27`
+## * ... and 13 more</code></pre>
+<pre class="r"><code>table(data1$name)</code></pre>
+<pre><code>## 
+##         braga   cree-newman          fink         flynn       gibbons 
+##             1             1             1             1             1 
+##         jayan          khan          king      kingsley      laflamme 
+##             1             1             1             1             1 
+##      linhares         lopes      mayernik       mccomie       mcfague 
+##             1             1             1             1             1 
+##         perez        perrin          rios rosas-merritt       stevens 
+##             1             1             1             1             1 
+##      tarleton        yuiska      yurchuck 
+##             1             1             1</code></pre>
+<pre class="r"><code>varlist &lt;- names(data1)
+# write to external file to inspect and choose relevant columns
+write.csv(varlist,&quot;vars.csv&quot;)</code></pre>
+<div id="a-function-for-changing-my-weird-time-variables-to-hours" class="section level2">
+<h2>a function for changing my weird time variables to hours</h2>
+<pre class="r"><code>codeStudyTime &lt;- function (timevar) {
+  ifelse(timevar == &quot;um... none&quot;, 0,
+    ifelse(timevar == &quot;less than 30 mins&quot;, .25,
+      ifelse(timevar == &quot;31 - 60 mins&quot;, .75,
+        ifelse(timevar == &quot;61 - 120 mins&quot;, 1.5,
+          ifelse(timevar == &quot;between 1 and 3 hours&quot;, 2,
+            ifelse(timevar == &quot;121 - 180 mins&quot;, 2.5,
+              ifelse(timevar == &quot;181 - 240 mins&quot;, 3.5,
+                ifelse(timevar == &quot;between 3 and 5 hours&quot;, 4,
+                  ifelse(timevar == &quot;more than 240 mins&quot;, 6, 
+                    ifelse(timevar == &quot;between 5 and 8 hours&quot;,
+                           6.5, NA)
+                    )
+                  )
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+}</code></pre>
+</div>
+<div id="grade-quizzes" class="section level2">
+<h2>“Grade” quizzes</h2>
+<p>How many quizzes, how much time studying?</p>
+<pre class="r"><code># grab the timestamps for all quizzes
+nquizzes &lt;- data1[,c(2,44,57,26,52,65,79)] 
+# this counts the number of quizzes completed
+data1$nquizzes &lt;- rowSums(!is.na(nquizzes))
+
+# this applies the codeStudyTime function and reduces it to a single variable
+timevars&lt;-  data1[,c(36, 11,60,48,55,83)] 
+
+timeStudying &lt;- timevars %&gt;% 
+    map_df(codeStudyTime) %&gt;% 
+    replace(is.na(.), &quot;0&quot;) #%&gt;% 
+# change it back to a number 
+timeStudying %&lt;&gt;% mutate_if(is.character,as.numeric) 
+data1$timeStudying&lt;-rowSums(timeStudying)</code></pre>
+<p>A few recodes for correct answers</p>
+<p>Code is kludgey here -</p>
+<pre class="r"><code>scores &lt;- data1[,c(1,86,87)]
+scores$q49 &lt;- as.numeric(ifelse(data1[49] == 
+ &quot;napoleon&#39;s march on moscow, the explosion of a space shuttle&quot;,
+ 1,
+    ifelse(data1[49] == &quot;napoleon&#39;s march on moscow&quot;,
+           .5, 
+           NA)))
+scores$q68 &lt;- ifelse(data1[68] == 
+ &quot;de moivre&#39;s equation describing the standard error of the mean&quot;,
+ 1,NA)
+scores$q72 &lt;- ifelse(data1[72] == &quot;yes&quot;, 1,
+              ifelse(data1[72] == &quot;kind of&quot;, .5, NA))
+scores$q75 &lt;- ifelse(data1[75] == &quot;p (b) &gt; p (a)&quot;, 1, NA)
+# treat all missing as 0 and sum four qs
+scores %&lt;&gt;%  replace(is.na(.), 0) %&lt;&gt;%   
+    mutate (.,knowledgeQ = (q49 + q68 + q72 + q75))
+scores$Zattend &lt;-round(scale(scores[2], center=TRUE, scale=TRUE),2)
+scores$Zeffort &lt;-round(scale(scores[3], center=TRUE, scale=TRUE),2)
+scores$Zknowledge &lt;-round(scale(scores[8], center=TRUE, scale=TRUE),2)
+# add response to &quot;challenge&quot; q
+scores &lt;- cbind(scores,data1[85])
+write.csv(scores,&quot;currentgrades.csv&quot;)
+# spreadsheet is annotated by hand</code></pre>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

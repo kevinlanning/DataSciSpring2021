@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -52,9 +52,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -68,7 +66,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -173,8 +170,6 @@ $(document).ready(function () {
 });
 </script>
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
 
 <style type="text/css">
@@ -219,6 +214,7 @@ $(document).ready(function () {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -231,20 +227,17 @@ $(document).ready(function () {
 }
 </style>
 
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
-  });
-});
-</script>
-
 <!-- code folding -->
 
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -265,7 +258,7 @@ $(document).ready(function () {
   <a href="index.html">honors intro data sci</a>
 </li>
 <li>
-  <a href="syllabus.htm">syllabus</a>
+  <a href="syllabus.html">syllabus</a>
 </li>
 <li>
   <a href="schedule.html">schedule</a>
@@ -299,10 +292,10 @@ $(document).ready(function () {
 </div>
 
 
-<div id="spring-2019" class="section level3">
-<h3>spring 2019</h3>
-<p>This site (<a href="https://kevinlanning.github.io/DataSciSpring2019/" class="uri">https://kevinlanning.github.io/DataSciSpring2019/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2019, taught by Professors Kevin Lanning and Terje Hoim. It is a work in progress, and will be continuously revised throughout the term.</p>
-<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/DataSciSpring2019" class="uri">https://github.com/kevinlanning/DataSciSpring2019</a>. It was created using <a href="http://rmarkdown.rstudio.com/">R Markdown</a>, with assistance from a <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">post by Aleszu Bajak</a>.</p>
+<div id="spring-2020" class="section level3">
+<h3>Spring 2020</h3>
+<p>This site (<a href="https://kevinlanning.github.io/DataSciSpring2020/" class="uri">https://kevinlanning.github.io/DataSciSpring2020/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2020, taught by Professor Kevin Lanning. It is a work in progress, and will be continuously revised throughout the term.</p>
+<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/DataSciSpring2020" class="uri">https://github.com/kevinlanning/DataSciSpring2020</a>. It was created using <a href="http://rmarkdown.rstudio.com/">R Markdown</a>, with assistance from a <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">post by Aleszu Bajak</a>.</p>
 </div>
 <div id="some-additional-resources" class="section level3">
 <h3>some additional resources</h3>
@@ -310,7 +303,7 @@ $(document).ready(function () {
 <p>The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile (<a href="https://www.coursera.org/specializations/jhu-data-science" class="uri">https://www.coursera.org/specializations/jhu-data-science</a>).</p>
 <p>If you use these (or other) resources, please let your classmates know on Slack.</p>
 <p>Our Slack workspace is at <a href="https://honorscollege.slack.com" class="uri">https://honorscollege.slack.com</a>, and Lanning’s notes are at <a href="https://kevinlanning.github.io/DataSciLibArts/" class="uri">https://kevinlanning.github.io/DataSciLibArts/</a>. These links are also in the navigation bar above</p>
-<p>- <em>revised January 09, 2019</em></p>
+<p>- <em>revised January 12, 2020</em></p>
 </div>
 
 
@@ -330,6 +323,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
