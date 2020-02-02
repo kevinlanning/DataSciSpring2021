@@ -1,0 +1,120 @@
+---
+title: "Tracking the Novel Coronavirus"
+author: "Kevin Lanning"
+date: "02022020 :)"
+output: html_document
+---
+
+This is an educational script for students learning R with the tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE) using the Googlesheets4 package written by Jenny Bryan.  
+
+
+```{r setup, message = FALSE}
+library(tidyverse)
+library(googlesheets4)
+library(magrittr)
+library(lubridate)
+# id for the coronavirus page (from its URL)
+novelCoronaID <- "1yZv9w9zRKwrGTaR-YzmAqMefw4wMlaXocejdxZaTs6w"
+# number of tabs/sheets in the workbook
+nsheets <- sheets_get(novelCoronaID) %>% 
+    extract2(6) %>% # gets the sixth element in a list  
+    nrow() 
+```
+
+### Reading the data
+
+The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R. 
+
+Watch for a message which says that you need to authenticate this in your browser and act accordingly:
+
+```{r message = FALSE}
+# variables to retain or create
+numvars <- c("Confirmed", "Deaths", "Recovered")
+varlist <- c("Province/State", "Country/Region", 
+             "Last Update", numvars) 
+# one cool trick to initialize a tibble
+coronaData <- varlist %>%
+     map_dfr( ~tibble(!!.x := logical() ) )
+# add data from Google sheet to tibble
+for (i in 1:nsheets) {
+  j <- read_sheet (novelCoronaID, sheet = i) 
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j) 
+}
+```
+
+### Cleaning (wrangling, munging) the data
+
+Cleaning the data includes not just finding "errors," but adapting it for our own use. Here, cleaning includes fixing 'missing' values. These were of two types - in the first few sheets, variable names were different from those on later dates, and so appear as missing. Throughout, values of NA for Deaths, Confirmed, and Recovered cases should be replaced by zero.
+
+Cleaning also includes reducing the data to the most recent value per date per place.
+
+```{r message = FALSE}
+coronaData %<>% 
+   mutate_if(is.numeric, ~replace_na(., 0)) %>% 
+# create a unique place variable for each row
+   mutate(place = ifelse(is.na(`Province/State`),
+                              `Country/Region`,
+                              `Province/State`)) %>% 
+# create a new date variable and fix a missing value
+  mutate(reportDate = 
+           ifelse(is.na(`Last Update`),
+                  ymd("2020-01-21"),
+                  date(`Last Update`))) %>% 
+  mutate(reportDate = as.Date(reportDate,
+                              origin = "1970-01-01")) %>%
+  group_by(place,reportDate) %>% 
+# select newest report for each place and date
+  slice(which.max(`Last Update`)) %>% 
+  select(-c(place,`Last Update`))
+```
+### Simplifying the data: China and the rest of the world
+
+For our purposes, we can simplify the data further to just compare China with all other countries, and to reduce the data to one date for each of these two sources.
+
+```{r}
+coronaDataSimple <- coronaData %>% 
+# three lines here for relative clarity
+  mutate(isChina = (str_detect(`Country/Region`,
+                               "China"))) %>% 
+  mutate(country = if_else(isChina,"China","Other")) %>%
+  select(-isChina) %>% 
+# another missing case fix
+  replace_na(list(country = "China")) %>% 
+  group_by(country,reportDate) %>% 
+  summarize(Confirmed = sum(Confirmed),
+            Deaths = sum(Deaths),
+            Recovered = sum(Recovered)) %>% 
+  ungroup()
+```
+
+### An initial plot
+
+Here's a first plot for you to consider and modify.
+
+```{r}
+ggplot(coronaDataSimple) +
+  geom_point(aes(x=reportDate, y=Confirmed,
+                       color = country))
+```
+
+### Some questions
+
+1. Consider the data and try to run the code yourself.
+  + What problems did you encounter? 
+  + What parts need to be annotated more?
+
+2. Examine the plot.
+  + Are there anomalies that need to be explained? 
+  + How does this data (for Confirmed) compare to the data for the other measures (Deaths and Recovered)? Plot these.
+  + What do the plots tell us? How can we edit them to learn more?
+
+3. Some more challenging questions.
+  + What is (roughly) the shape of the function for each of the three variables, and for China/Other? 
+  + What values would you expect for, say, ten days from now?
+
+### Additional notes
+
+If you are interested in looking at additional epidemiological datasets and how they might be looked at in R, consider this source by Tomás J. Aragón (https://bookdown.org/medepi/phds/)
