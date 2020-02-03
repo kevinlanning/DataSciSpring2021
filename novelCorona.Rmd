@@ -14,7 +14,11 @@ library(googlesheets4)
 library(magrittr)
 library(lubridate)
 # id for the coronavirus page (from its URL)
-novelCoronaID <- "1yZv9w9zRKwrGTaR-YzmAqMefw4wMlaXocejdxZaTs6w"
+novelCoronaID <- 
+# link changed 2/3
+#  "1yZv9w9zRKwrGTaR-YzmAqMefw4wMlaXocejdxZaTs6w"
+"1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM"
+
 # number of tabs/sheets in the workbook
 nsheets <- sheets_get(novelCoronaID) %>% 
     extract2(6) %>% # gets the sixth element in a list  
@@ -27,17 +31,36 @@ The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This 
 
 Watch for a message which says that you need to authenticate this in your browser and act accordingly:
 
+Modified February 3 because of new GoogleSheet link and altered variable names.
+
 ```{r message = FALSE}
 # variables to retain or create
 numvars <- c("Confirmed", "Deaths", "Recovered")
-varlist <- c("Province/State", "Country/Region", 
-             "Last Update", numvars) 
+varlist <- c("Province/State", "Country/Region",
+             "Last Update (UTC)", numvars) 
 # one cool trick to initialize a tibble
 coronaData <- varlist %>%
      map_dfr( ~tibble(!!.x := logical() ) )
+
 # add data from Google sheet to tibble
-for (i in 1:nsheets) {
+for (i in 1:(nsheets-25)) {
   j <- read_sheet (novelCoronaID, sheet = i) 
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j) 
+}
+for (i in (nsheets-24):(nsheets-1)) {
+  j <- read_sheet (novelCoronaID, sheet = i) %>% 
+        rename(`Last Update (UTC)` = `Last Update`)
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j) 
+}
+for (i in (nsheets):(nsheets)) {
+  j <- read_sheet (novelCoronaID, sheet = i) %>% 
+        rename(`Last Update (UTC)` = `Date last updated`)
 # if a variable doesn't exist in sheet, add it
   j[setdiff(varlist,names(j))] <- NA
   j %<>% select(varlist)
@@ -58,17 +81,13 @@ coronaData %<>%
    mutate(place = ifelse(is.na(`Province/State`),
                               `Country/Region`,
                               `Province/State`)) %>% 
-# create a new date variable and fix a missing value
+# create a new date variable 
   mutate(reportDate = 
-           ifelse(is.na(`Last Update`),
-                  ymd("2020-01-21"),
-                  date(`Last Update`))) %>% 
-  mutate(reportDate = as.Date(reportDate,
-                              origin = "1970-01-01")) %>%
+                  date(`Last Update (UTC)`)) %>% 
   group_by(place,reportDate) %>% 
 # select newest report for each place and date
-  slice(which.max(`Last Update`)) %>% 
-  select(-c(place,`Last Update`))
+  slice(which.max(`Last Update (UTC)`)) %>% 
+  select(-c(place,`Last Update (UTC)`))
 ```
 ### Simplifying the data: China and the rest of the world
 
