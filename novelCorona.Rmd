@@ -33,11 +33,13 @@ Watch for a message which says that you need to authenticate this in your browse
 
 Modified February 3 because of new GoogleSheet link and altered variable names.
 
+Modified again Feb 5 because they changed the variable name for date again
+
 ```{r message = FALSE}
 # variables to retain or create
 numvars <- c("Confirmed", "Deaths", "Recovered")
 varlist <- c("Province/State", "Country/Region",
-             "Last Update (UTC)", numvars) 
+             "Last Update", numvars) 
 # one cool trick to initialize a tibble
 coronaData <- varlist %>%
      map_dfr( ~tibble(!!.x := logical() ) )
@@ -52,7 +54,7 @@ for (i in 1:(nsheets-25)) {
 }
 for (i in (nsheets-24):(nsheets-1)) {
   j <- read_sheet (novelCoronaID, sheet = i) %>% 
-        rename(`Last Update (UTC)` = `Last Update`)
+        rename(`Last Update` = `Last Update`)
 # if a variable doesn't exist in sheet, add it
   j[setdiff(varlist,names(j))] <- NA
   j %<>% select(varlist)
@@ -60,7 +62,7 @@ for (i in (nsheets-24):(nsheets-1)) {
 }
 for (i in (nsheets):(nsheets)) {
   j <- read_sheet (novelCoronaID, sheet = i) %>% 
-        rename(`Last Update (UTC)` = `Date last updated`)
+        rename(`Last Update` = `Date last updated`)
 # if a variable doesn't exist in sheet, add it
   j[setdiff(varlist,names(j))] <- NA
   j %<>% select(varlist)
@@ -83,11 +85,11 @@ coronaData %<>%
                               `Province/State`)) %>% 
 # create a new date variable 
   mutate(reportDate = 
-                  date(`Last Update (UTC)`)) %>% 
-  group_by(place,reportDate) %>% 
+                  date(`Last Update`)) #%>% 
+#  group_by(place,reportDate) %>% 
 # select newest report for each place and date
-  slice(which.max(`Last Update (UTC)`)) %>% 
-  select(-c(place,`Last Update (UTC)`))
+#  slice(which.max(`Last Update`)) %>% 
+#  select(-c(place,`Last Update`))
 ```
 ### Simplifying the data: China and the rest of the world
 
@@ -115,7 +117,7 @@ Here's a first plot for you to consider and modify.
 
 ```{r}
 ggplot(coronaDataSimple) +
-  geom_point(aes(x=reportDate, y=Confirmed,
+  geom_point(aes(x=reportDate, y=Deaths,
                        color = country))
 ```
 
