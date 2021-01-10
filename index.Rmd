@@ -8,10 +8,11 @@ output:
     highlight: pygments
 
 ---
-### Spring 2020 
-This site (https://kevinlanning.github.io/DataSciSpring2020/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2020, taught by Professor Kevin Lanning. It is a work in progress, and will be continuously revised throughout the term.
+### Spring 2021
 
-The files which were used to generate this site reside on https://github.com/kevinlanning/DataSciSpring2020. It was created using [R Markdown](http://rmarkdown.rstudio.com/), with assistance from a [post by Aleszu Bajak](http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/).
+This site (https://kevinlanning.github.io/DataSciSpring2021/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2021, taught by Professor Kevin Lanning. It is a work in progress, and will be continuously revised throughout the term.
+
+The files which were used to generate this site reside on https://github.com/kevinlanning/DataSciSpring2021. It was created using [R Markdown](http://rmarkdown.rstudio.com/), with assistance from a [post by Aleszu Bajak](http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/).
 
 ### some additional resources
 
@@ -19,9 +20,7 @@ The files which were used to generate this site reside on https://github.com/kev
 
 The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile   (https://www.coursera.org/specializations/jhu-data-science).
 
-If you use these (or other) resources, please let your classmates know on Slack.  
-
-Our Slack workspace is at https://honorscollege.slack.com, and Lanning's notes are at https://kevinlanning.github.io/DataSciLibArts/. These links are also in the navigation bar above
+If you use these (or other) resources, please let your classmates know.
 
 \- *revised `r format(Sys.Date(),"%B %d, %Y")`*
 

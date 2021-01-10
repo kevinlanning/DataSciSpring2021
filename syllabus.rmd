@@ -6,55 +6,59 @@ output:
   html_document: default
 ---
 
-This document is current as of `r Sys.Date()`. An updated version may be found at [_https://kevinlanning.github.io/DataSciSpring2020/_](https://kevinlanning.github.io/DataSciSpring2020/).
+This document is current as of `r Sys.Date()`. An updated version may be found at [*https://kevinlanning.github.io/DataSciSpring2021/*](https://kevinlanning.github.io/DataSciSpring2021/).
 
 ### basics
 
-This is **COP 3076 Section 1**. It is a 3 credit class offered in the **Spring 2020** term. The class meets **MW 1230-150 in AD 102**. There is no lab. 
+This is **COP 3076 Section 1**. It is a 3 credit class offered in the **Spring 2021** term. The class meets **MW 1230-150 on the Zoom platform**. There is no lab.
 
-The professor is Kevin Lanning, whose office is on the Jupiter campus of FAU in WB 213. My office hours are **TR 1-4.** I encourage you to book an appointment at https://calendly.com/kevin-lanning/officehours. My office phone is (561) 799-8652, but it is quicker to reach me via email at lanning@fau.edu.
+The professor is Kevin Lanning. My (virtual) office hours are **MT 2-4;** additional times can be scheduled as needed**.** Please make an appointment at <https://calendly.com/kevin-lanning/officehours>. My office phone is (561) 594-1018, but it is quicker to reach me via email at <lanning@fau.edu>.
 
-**course prerequisites / co-requisites**: STA 2023 (or equivalent) or permission of instructor is a prerequisite.
+**course prerequisites / co-requisites**: STA 2023 (or equivalent, or permission of instructor) is a prerequisite.
 
-**course description:** COP 3076 is an introductory seminar on data science.
+**course description:** This is a team-taught course that engages in interdisciplinary critical inquiry connecting courses from different disciplines to explore problems from a variety of perspectives and establish connections among distinct disciplines.
 
-**course delivery mode:** Live, in person, face-to-face.
+The study of thinking and decision making lies at the nexus of the two major approaches to understanding the world: Reason and empiricism. This course considers both the normative models of how we should reason and empirical studies of how we in fact think and decide.
+
+**course delivery mode:** Online via Zoom.
 
 **note of honors distinction:** The course receives honors credit by virtue of its small class size, by virtue of a dialectic approach in the classroom structure, and by the fact that students receive extensive exposure to supplementary materials and primary sources. This course differs substantially from a non-Honors course in that (a) the expectations for participation in class discussions will be greater than in a typical undergraduate course with a larger number of students, (b) class projects will be undertaken in heterogeneous groups in which students will be teaching and learning from their peers as well as the instructor, (c) assignments and expectations will be, to some extent, tailored to the backgrounds and interests of the individual student (d) the data sets we will collaboratively examine will be chosen to foster disciplinary breadth.
 
 ### course objectives / student learning outcomes
 
-Hochster (in Hicks &amp; Irizarry, 2017) describes two broad types of data scientists: Type A (Analysis) data scientists, whose skills are like those of an applied statistician, and Type B (Building) data scientists, whose skills lie in problem solving or coding, using the skills of the computer scientist. Our course is closer to a Type A than a Type B treatment, one which is closer to Statistics than to Computer Science, but it is also essentially concerned with content in the concentrations in the arts, humanities, and natural and social sciences. It is thus best understood as a third (Type C) approach, one which has as its objectives progress not just in the understanding of statistics and computing, but also in skills such as collaboration and communication, in exposure to the methods and tools of reproducible science, and in fostering a heightened sensitivity to the ethical challenges of the digital age.
+Hochster (in Hicks & Irizarry, 2017) describes two broad types of data scientists: Type A (**Analysis**) data scientists, whose skills are like those of an applied statistician, and Type B (**Building**) data scientists, whose skills lie in problem solving or coding, using the skills of the computer scientist. Our course is closer to a Type A than a Type B treatment, one which is closer to Statistics than to Computer Science, but it is also essentially concerned with **Content** in the concentrations in the arts, humanities, and natural and social sciences. It is thus best understood as a third (Type C) approach, one which has as its objectives progress not just in the understanding of statistics and computing, but also in skills such as collaboration and communication, in exposure to the methods and tools of reproducible science, and in fostering a heightened sensitivity to the ethical challenges of the digital age.
 
-The course will be taught using the statistical and graphical language R. In addition to R, we'll use a range of other tools, including the Slack platform for communication and collaboration, markdown editors such as Typora for writing, and spreadsheets such as Excel or Google Sheets. These tools will be used in service of a hierarchy of goals, ranging from literacy through proficiency and fluency to leadership.
+The course will be taught using the statistical and graphical language R. In addition to R, we'll use a range of other tools, including the Canvas Learning Management System (LMS) for communication and collaboration, and spreadsheets such as Excel or Google Sheets. These tools will be used in service of a hierarchy of goals, ranging from literacy through proficiency, then fluency, and ultimately towards 'leadership.'
 
 ### paths beyond the introductory course
 
-Students interested in specializing in Data Science have several possibilities. At this writing, there is enthusiasm across units of FAU and its affiliated institutes, including Max Planck and FAU's Colleges of Science and Engineering, for integrating data science into our curriculum. The WHC is at the forefront of this, with a data science minor and, in collaboration with the College of Engineering, a data analytics concentration.  Students interested in concentrating in Data Science may also pursue an individual concentration (see Dr. Lanning for details).   In addition, there are several integrated '4 + 1' pathways which will lead to a master's degree in the College of Engineering.  
+Students interested in specializing in Data Science have several possibilities. At this writing, there is enthusiasm across units of FAU and its affiliated institutes, including Max Planck and FAU's Colleges of Science and Engineering, for integrating data science into our curriculum. The WHC is at the forefront of this, with a data science minor and, in collaboration with the College of Engineering, a data analytics concentration. Students interested in concentrating in Data Science may also pursue an individual concentration (see Dr. Lanning for details). In addition, there are several integrated '4 + 1' pathways which will lead to a master's degree in the College of Engineering.
 
 ### required texts and materials
 
-Wickham, H. &amp; Grolemund, G. (2016) _R for data science_. Sebastopol, CA: O'Reilly or online at [http://r4ds.had.co.nz](http://r4ds.had.co.nz/). (our primary text)
+Wickham, H. & Grolemund, G. (2016) *R for data science*. Sebastopol, CA: O'Reilly or online at [http://r4ds.had.co.nz](http://r4ds.had.co.nz/). (our primary text)
 
-Lanning, K. (in preparation). _Data Science for the Liberal Arts._ [https://kevinlanning.github.io/DataSciLibArts/](https://kevinlanning.github.io/DataSciLibArts/)
+Lanning, K. (in preparation). *Data Science for the Liberal Arts.* <https://kevinlanning.github.io/DataSciLibArts/>
 
 In addition, there are a number of sources which we are likely to access at least occasionally (see [references](https://kevinlanning.github.io/DataSciSpring2020/references), below[)](https://kevinlanning.github.io/DataSciSpring2020/references). **All of these materials are presently available online.**
 
-**minimum technology and computer requirements:** You'll need a reliable laptop computer running either Windows or Mac OS.  (If you don't have access to a laptop for everyday use, please see me as soon as possible).
+**minimum technology and computer requirements:** You'll need a reliable laptop computer, ideally running either Windows or Mac OS, and a wi-fi connection with sufficient bandwidth so that all of us can see as well as hear each other. (If you don't have these resources, please let me know as soon as possible).
 
-### course assessments, assignments, &amp; grading policy
+**a note on teaching and learning in a pandemic**: I appreciate that you are persisting in the face of real obstacles, including the stresses of being disconnected from friends and family, distractions from proximal (working from home) and distal (the news) sources, tech hiccups with your home wi-fi and/or an overburdened internet, concerns for loved ones, and possibly challenges to your own physical as well as mental health. You are to be commended for what you have already accomplished under these taxing circumstances. I will do everything I can to help you succeed in this class.
+
+### course assessments, assignments, & grading policy
 
 Grades will be based on a 100 point scale, with points earned by participation, homework and quizzes, two term projects, and a final report.
 
-**participation** (10 points). Attendance is a necessary but not sufficient part of class participation. Your participation grade will be based also on the extent to which you contribute to our class by asking constructive questions and helping your classmates solve the numerous challenges which we will collectively face.
+**participation** (25 points). Attendance is a necessary but not sufficient part of class participation. Your participation grade will be based also on the extent to which you contribute to our class by asking constructive questions and helping your classmates solve the numerous challenges which we will collectively face. That is, you can earn participation points by showing up, learning, engaging, and helping your classmates (particularly in small breakout groups).
 
-**homework/quizzes** (20 points). These are also linked to attendance. Most homework projects will be submitted as in-class quizzes on the assigned date.
+**homework/quizzes** (10 points). These are also linked to attendance. Most homework projects will be submitted as in-class quizzes on the assigned date.
 
-**two term projects** (40 points).  Learning is social. The term projects will be collaborative, data-based projects which you will undertake with two to four of your peers and which you will submit as fully-contained R markdown documents (that is, as reproducible documents which will include your argument, links to data, commented code, and the results of statistically appropriate analyses and/or data visualizations). The projects will be empirical, typically from data that I provide you with or we find together.  The datasets that we will be working with will be small enough to analyze on your laptops in R.
+**two term projects** (40 points total). Learning is social. The term projects will be collaborative, data-based projects which you will undertake with two to four of your peers and which you will submit as fully-contained R markdown documents (that is, as reproducible documents which will include your argument, links to data, commented code, and the results of statistically appropriate analyses and/or data visualizations). The projects will be empirical, typically from data that I provide you with or we find together. The datasets that we will be working with will be small enough to analyze on your laptops in R.
 
-In order for us to assess your individual contributions and to minimize social loafing, I ask that all meetings and communications among group members be undertaken on the [Slack](https://honorscollege.slack.com/) platform, and that, in addition to the paper, all group members sign a 1-page cover sheet describing the primary contribution and percent effort of each person. We'll work together on creating groups that will, hopefully, maximize synergies among you, that is, how much you learn from each other and the quality of the final project. Groups and paper topics will be developed in class. You'll present your projects in class as well.
+In order for us to assess your individual contributions and to minimize social loafing, I ask that all meetings and communications among group members be undertaken in Canvas, and that, in addition to the paper, all group members digitally sign a 1-page cover sheet describing the primary contribution and percent effort of each person. We'll work together on creating groups that will, hopefully, maximize synergies among you, that is, how much you learn from each other and the quality of the final project. Groups and paper topics will be developed in class. You'll present your projects in class as well.
 
-**a final report** (30 points). Your final not-an-exam will include three parts (a) submission of a sample of your best work (code) in the class, (b) responses to a brief set of take-home questions about the class presentations as well as exercises taken from R4DS, and (c) your own self-assessment of how much you have learned this term.
+**a final report** (25 points). Your final not-an-exam will include three parts (a) submission of a sample of your best work (code) in the class, (b) responses to a brief set of take-home questions about the class presentations as well as exercises taken from R4DS, and (c) your own self-assessment of how much you have learned this term.
 
 **extra credit** (5 points maximum). You'll have the opportunity to earn additional points by solving one or more data challenges that we will develop as the class goes forward.
 
@@ -82,40 +86,42 @@ kable(t(scale)) %>%
 
 ```
 
-_note that in borderline cases, students may receive the higher of two grades if there is evidence of sustained effort and/or improvement over the course of the term_
+*note that in borderline cases, students may receive the higher of two grades if there is evidence of sustained effort and/or improvement over the course of the term*
 
 ### schedule and due dates
 
-The schedule is live at http://bit.ly/DataSciSched2020, please go to that link for the most recent changes and working links.  Here is the schedule as of `r Sys.Date()`:
+The schedule is live at [http://bit.ly/DataSciSched2021](http://bit.ly/DatSciSched2021){.uri}, please go to that link for the most recent changes and working links. Here is the schedule as of `r Sys.Date()`:
 
-<iframe  width="800" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ55jFAlKdrUgSg057KguAtjN2bSZCHAEZLOs2E-juegG4pmikd8RsGp2J6S1ysZSk_fD1JVEdbAhjO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-Again, please see [**http://bit.ly/DataSciSched2020**](http://bit.ly/DataSciSched2020) **for the latest updates.**
+<iframe width="800" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ55jFAlKdrUgSg057KguAtjN2bSZCHAEZLOs2E-juegG4pmikd8RsGp2J6S1ysZSk_fD1JVEdbAhjO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+
+</iframe>
+
+Again, please see <http://bit.ly/DataSciSched2021> **for the latest updates.**
 
 ### course policies
 
-**incomplete grade policy:** University policy states that a student who is passing a course, but has not completed all work due to exceptional circumstances, may, with consent of the instructor, temporarily receive a grade of incomplete (&quot;I&quot;). The assignment of the &quot;I&quot; grade is at the discretion of the instructor, but is allowed only if the student is passing the course.
+**incomplete grade policy:** University policy states that a student who is passing a course, but has not completed all work due to exceptional circumstances, may, with consent of the instructor, temporarily receive a grade of incomplete ("I"). The assignment of the "I" grade is at the discretion of the instructor, but is allowed only if the student is passing the course.
 
-**attendance policy:** As noted above, attendance is expected and will contribute to the portion of grades assessed as &quot;class participation."
+**attendance policy:** As noted above, attendance is expected and will contribute to the portion of grades assessed as "class participation."
 
 **special course requirements**: None.
 
-### additional selected university &amp; college policies
+### additional selected university & college policies
 
-**classroom etiquette/disruptive behavior policy statement:** Disruptive behavior is defined in the FAU Student Code of Conduct as &quot;... activities which interfere with the educational mission within classroom.&quot; Students who disrupt the educational experiences of other students and/or the instructor's course objectives in a face-to-face or online course are subject to disciplinary action. Such behavior impedes students' ability to learn or an instructor's ability to teach. Disruptive behavior may include, but is not limited to non-approved use of electronic devices (including cellular telephones); cursing or shouting at others in such a way as to be disruptive; or, other violations of an instructor's expectations for classroom conduct. For more information, please see the [FAU Office of Student Conduct](http://www.fau.edu/studentconduct/).
+**classroom etiquette/disruptive behavior policy statement:** Disruptive behavior is defined in the FAU Student Code of Conduct as "... activities which interfere with the educational mission within classroom." Students who disrupt the educational experiences of other students and/or the instructor's course objectives in a face-to-face or online course are subject to disciplinary action. Such behavior impedes students' ability to learn or an instructor's ability to teach. Disruptive behavior may include, but is not limited to non-approved use of electronic devices (including cellular telephones); cursing or shouting at others in such a way as to be disruptive; or, other violations of an instructor's expectations for classroom conduct. For more information, please see the [FAU Office of Student Conduct](http://www.fau.edu/studentconduct/).
 
-**code of academic integrity policy statement:** Students at Florida Atlantic University should endeavor to maintain the highest ethical standards. Academic dishonesty is a serious breach of these ethical standards, because it interferes with the University mission to provide a high quality education in which no student enjoys an unfair advantage over any other. Academic dishonesty is also destructive to the university community, which is grounded in a system of mutual trust and places high value on personal integrity and individual responsibility. Harsh penalties are associated with academic dishonesty. For more information, see [University Regulation 4.001](http://www.fau.edu/regulations/chapter4/4.001_Code_of_Academic_Integrity.pdf) and the WHC code at [http://www.fau.edu/honors/academics/honor-code.php](http://www.fau.edu/honors/academics/honor-code.php).
+**code of academic integrity policy statement:** Students at Florida Atlantic University should endeavor to maintain the highest ethical standards. Academic dishonesty is a serious breach of these ethical standards, because it interferes with the University mission to provide a high quality education in which no student enjoys an unfair advantage over any other. Academic dishonesty is also destructive to the university community, which is grounded in a system of mutual trust and places high value on personal integrity and individual responsibility. Harsh penalties are associated with academic dishonesty. For more information, see [University Regulation 4.001](http://www.fau.edu/regulations/chapter4/4.001_Code_of_Academic_Integrity.pdf) and the WHC code at <http://www.fau.edu/honors/academics/honor-code.php>.
 
-**[Plagiarism](http://libguides.fau.edu/c.php?g=325629&amp;p=2352760)** is the deliberate use and appropriation of another's work without identifying the source and trying to pass off such work as one's own. Any student who fails to give full credit for ideas or materials taken from another has plagiarized. This includes all discussion board posts, journal entries, wikis, and other written and oral presentation assignments. Plagiarism is unacceptable in the University community. Academic work must be an original work of your own thought, research, or self-expression. When students borrow ideas, wording, or organization from another source, they must acknowledge that fact in an appropriate manner. If in doubt, cite your source.
+[**Plagiarism**](http://libguides.fau.edu/c.php?g=325629&p=2352760) is the deliberate use and appropriation of another's work without identifying the source and trying to pass off such work as one's own. Any student who fails to give full credit for ideas or materials taken from another has plagiarized. This includes all discussion board posts, journal entries, wikis, and other written and oral presentation assignments. Plagiarism is unacceptable in the University community. Academic work must be an original work of your own thought, research, or self-expression. When students borrow ideas, wording, or organization from another source, they must acknowledge that fact in an appropriate manner. If in doubt, cite your source.
 
 **accessibility policy statement:** In compliance with the Americans with Disabilities Act Amendments (ADAAA), students who require special accommodations to properly execute coursework due to a disability, must register with Student Accessibility Services (SAS) located in theBoca Raton, Davie, and Jupiter campuses and follow all SAS procedures. For additional information, please consult [Student Accessibility Services](http://www.fau.edu/sas). (Boca Raton: (561) 297-3880, Fax: (561) 297-2184, TTY: 711; Davie: (954) 236-1222, Fax: (954) 236-1123, TTY: 711, Jupiter: (561) 799-8721, Fax: (561) 799-8721, TTY: 711
 
-**grade appeal process:** You may request a review of the final course grade when you believe that one of the following conditions apply: There was a computational or recording error in the grading,  the grading process used non-academic criteria, there was a gross violation of the instructor's own grading system. [Chapter 4 of the University Regulations](http://www.fau.edu/regulations/chapter4/index.php) contains information on the grade appeals process.
+**grade appeal process:** You may request a review of the final course grade when you believe that one of the following conditions apply: There was a computational or recording error in the grading, the grading process used non-academic criteria, there was a gross violation of the instructor's own grading system. [Chapter 4 of the University Regulations](http://www.fau.edu/regulations/chapter4/index.php) contains information on the grade appeals process.
 
-**religious accommodation policy statement:** In accordance with rules of the Florida Board of Education and Florida law, students have the right to reasonable accommodations from the University in order to observe religious practices and beliefs with regard to admissions, registration, class attendance, and the scheduling of examinations and work assignments.  For further information, please see [Academic Policies and Regulations](http://www.fau.edu/academic/registrar/FAUcatalog/academics.php).
+**religious accommodation policy statement:** In accordance with rules of the Florida Board of Education and Florida law, students have the right to reasonable accommodations from the University in order to observe religious practices and beliefs with regard to admissions, registration, class attendance, and the scheduling of examinations and work assignments. For further information, please see [Academic Policies and Regulations](http://www.fau.edu/academic/registrar/FAUcatalog/academics.php).
 
 **university approved absence policy statement:** In accordance with rules of the Florida Atlantic University, students have the right to reasonable accommodations to participate in University approved activities, including athletic or scholastics teams, musical and theatrical performances and debate activities. It is your responsibility to notify the instructor at least one week prior to missing any course assignment.
 
 **drops/withdrawals:** You are responsible for completing the process of dropping or withdrawing from a course. Please click on the following link for more information on dropping and/or withdrawing from a course. Please consult the [FAU Registrar Office](http://www.fau.edu/registrar/registration/faqs.php) for more information.
 
-**counseling and psychological services (CAPS) center:** Life as a university student can be challenging physically, mentally and emotionally. Students who find stress negatively affecting their ability to achieve academic or personal goals may wish to consider utilizing FAU's Counseling and Psychological Services (CAPS) Center. CAPS provides FAU students a range of services – individual counseling, support meetings, and psychiatric services, to name a few – offered to help improve and maintain emotional well-being. For more information, go to _[_http://www.fau.edu/counseling/_](http://www.fau.edu/counseling/).
-
+**counseling and psychological services (CAPS) center:** Life as a university student can be challenging physically, mentally and emotionally. Students who find stress negatively affecting their ability to achieve academic or personal goals may wish to consider utilizing FAU's Counseling and Psychological Services (CAPS) Center. CAPS provides FAU students a range of services -- individual counseling, support meetings, and psychiatric services, to name a few -- offered to help improve and maintain emotional well-being. For more information, go to \_[*http://www.fau.edu/counseling/*](http://www.fau.edu/counseling/).

@@ -5,6 +5,6 @@ output:
     toc: false
 ---
 
-The class will cover a series of modules, each of which may be covered in more than or less than a single class period.  My notes for these modules will be updated regularly [here](http://bit.ly/DataSciSched2020).
+The class will cover a series of modules, each of which may be covered in more than or less than a single class period.  My notes for these modules will be updated regularly [here](http://bit.ly/DataSciSched2021).
 
-<iframe  width="800" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ55jFAlKdrUgSg057KguAtjN2bSZCHAEZLOs2E-juegG4pmikd8RsGp2J6S1ysZSk_fD1JVEdbAhjO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+<iframe  width="800" height="600" src="https://docs.google.com/spreadsheets/d/12Q_O4BRReHknsELnzISePesycCpfa5a8YQv1NyB1Los/edit?usp=sharing"></iframe>

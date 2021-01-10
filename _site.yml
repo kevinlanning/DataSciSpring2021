@@ -9,13 +9,7 @@ navbar:
       href: syllabus.html
     - text: "schedule"
       href: schedule.html
-    - text: "references"
-      href: references.html
-    - text: "slack"
-      href: https://honorscollege.slack.com
     - text: "R4DS (Wickham)" 
       href: https://r4ds.had.co.nz/introduction.html
-    - text: "dsla (Lanning)" 
+    - text: "dsla (Lanning)"
       href: https://kevinlanning.github.io/DataSciLibArts/
-
-  
