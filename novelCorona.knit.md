@@ -1,7 +1,7 @@
 ---
 title: "Tracking the Novel Coronavirus"
 author: "Kevin Lanning, Wilkes Honors College"
-date: "02022020 :)"
+date: "02022020"
 output: html_document
 ---
 
