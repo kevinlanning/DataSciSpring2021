@@ -13,3 +13,5 @@ navbar:
       href: https://r4ds.had.co.nz/introduction.html
     - text: "dsla (Lanning)"
       href: https://kevinlanning.github.io/DataSciLibArts/
+    - text: "RStudio Cloud"
+      href: https://rstudio.cloud/
