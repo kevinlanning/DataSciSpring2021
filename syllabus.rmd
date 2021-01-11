@@ -10,15 +10,13 @@ This document is current as of `r Sys.Date()`. An updated version may be found a
 
 ### basics
 
-This is **COP 3076 Section 1**. It is a 3 credit class offered in the **Spring 2021** term. The class meets **MW 1230-150 on the Zoom platform**. There is no lab.
+This is **COP 3076 Section 1**. It is a 3 credit class offered in the **Spring 2021** term. The class meets **MW 930-1150 on the Zoom platform**. There is no lab.
 
 The professor is Kevin Lanning. My (virtual) office hours are **MT 2-4;** additional times can be scheduled as needed**.** Please make an appointment at <https://calendly.com/kevin-lanning/officehours>. My office phone is (561) 594-1018, but it is quicker to reach me via email at <lanning@fau.edu>.
 
 **course prerequisites / co-requisites**: STA 2023 (or equivalent, or permission of instructor) is a prerequisite.
 
-**course description:** This is a team-taught course that engages in interdisciplinary critical inquiry connecting courses from different disciplines to explore problems from a variety of perspectives and establish connections among distinct disciplines.
-
-The study of thinking and decision making lies at the nexus of the two major approaches to understanding the world: Reason and empiricism. This course considers both the normative models of how we should reason and empirical studies of how we in fact think and decide.
+**course description:** COP 3076 is an introductory seminar on data science.
 
 **course delivery mode:** Online via Zoom.
 
@@ -40,7 +38,7 @@ Wickham, H. & Grolemund, G. (2016) *R for data science*. Sebastopol, CA: O'Reill
 
 Lanning, K. (in preparation). *Data Science for the Liberal Arts.* <https://kevinlanning.github.io/DataSciLibArts/>
 
-In addition, there are a number of sources which we are likely to access at least occasionally (see [references](https://kevinlanning.github.io/DataSciSpring2020/references), below[)](https://kevinlanning.github.io/DataSciSpring2020/references). **All of these materials are presently available online.**
+In addition, there are a number of papers, manuals, and websites which we will access at least occasionally. These will be provided to you in Canvas (under the 'Files' tab) and/or in links in the schedule below.
 
 **minimum technology and computer requirements:** You'll need a reliable laptop computer, ideally running either Windows or Mac OS, and a wi-fi connection with sufficient bandwidth so that all of us can see as well as hear each other. (If you don't have these resources, please let me know as soon as possible).
 
@@ -90,13 +88,13 @@ kable(t(scale)) %>%
 
 ### schedule and due dates
 
-The schedule is live at [http://bit.ly/DataSciSched2021](http://bit.ly/DatSciSched2021){.uri}, please go to that link for the most recent changes and working links. Here is the schedule as of `r Sys.Date()`:
+The schedule is a dynamic document. While due dates for the first (March 10) and second (March 23) are, pending any university-wide mandates, fixed, all other dates and content are subject to change. Please go to <https://bit.ly/WHCDataSci21> for the most recent changes and working links. Here is the schedule as of `r Sys.Date()`:
 
 <iframe width="800" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ55jFAlKdrUgSg057KguAtjN2bSZCHAEZLOs2E-juegG4pmikd8RsGp2J6S1ysZSk_fD1JVEdbAhjO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
 
 </iframe>
 
-Again, please see <http://bit.ly/DataSciSched2021> **for the latest updates.**
+Again, please see <https://bit.ly/WHCDataSci21> **for the latest updates.**
 
 ### course policies
 
@@ -125,3 +123,139 @@ Again, please see <http://bit.ly/DataSciSched2021> **for the latest updates.**
 **drops/withdrawals:** You are responsible for completing the process of dropping or withdrawing from a course. Please click on the following link for more information on dropping and/or withdrawing from a course. Please consult the [FAU Registrar Office](http://www.fau.edu/registrar/registration/faqs.php) for more information.
 
 **counseling and psychological services (CAPS) center:** Life as a university student can be challenging physically, mentally and emotionally. Students who find stress negatively affecting their ability to achieve academic or personal goals may wish to consider utilizing FAU's Counseling and Psychological Services (CAPS) Center. CAPS provides FAU students a range of services -- individual counseling, support meetings, and psychiatric services, to name a few -- offered to help improve and maintain emotional well-being. For more information, go to \_[*http://www.fau.edu/counseling/*](http://www.fau.edu/counseling/).
+
+## Additional references
+
+Allaire, J., Xie, Y., McPherson, J., Luraschi, J., Ushey, K., Atkins, A., Wickham, H., Cheng, J., & Chang, W. (2017). *rmarkdown: Dynamic documents for r* [Manual]. <https://CRAN.R-project.org/package=rmarkdown>
+
+Alter, A. (2017). *Irresistible: The rise of addictive technology and the business of keeping us hooked*. Penguin.
+
+Anscombe, F. (1973a). Graphs in statistical analysis. *American Statistician*, *27*(1), 17--21.
+
+Bajak, A. (2017a). *Digital storytelling and social media, northeastern school of journalism, JRNL 3610* [Manual]. <https://aleszu.github.io/digisoc/index.html>
+
+Bajak, A. (2017b). *How to convert a Google Doc to RMarkdown and publish on Github pages*. <http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/>
+
+Baker, M. (2016). Is there a reproducibility crisis? *Nature*, *533*, 26.
+
+Baumer, B., Cetinkaya-Rundel, M., Bray, A., Loi, L., & Horton, N. J. (2014). R Markdown: Integrating a reproducible analysis tool into introductory statistics. *ArXiv Preprint ArXiv:1402.1894*.
+
+Benjamin, D. J., Berger, J. O., Johannesson, M., Nosek, B. A., Wagenmakers, E.-J., Berk, R., Bollen, K. A., Brembs, B., Brown, L., Camerer, C., Cesarini, D., Chambers, C. D., Clyde, M., Cook, T. D., De Boeck, P., Dienes, Z., Dreber, A., Easwaran, K., Efferson, C., ... Johnson, V. E. (2018). Redefine statistical significance. *Nature Human Behaviour*, *2*(1), 6--10. <https://doi.org/10/cff2>
+
+Biology, A. S. for C. & others. (2015). *How can scientists enhance rigor in conducting basic research and reporting research results? A white paper from the American Society for Cell Biology*.
+
+Bonomi, F., Milito, R., Zhu, J., & Addepalli, S. (2012). Fog computing and its role in the internet of things. *Proceedings of the First Edition of the MCC Workshop on Mobile Cloud Computing*, 13--16.
+
+Bravo, H. C. (2017). *Introduction to data science, u maryland CMSC 320* [Manual]. <http://www.hcbravo.org/IntroDataSci/>
+
+Broman, K. W., & Woo, K. H. (2018). Data Organization in Spreadsheets. *The American Statistician*, *72*(1), 2--10. <https://doi.org/10.1080/00031305.2017.1375989>
+
+Bryan, Jennifer. (2017). *Practical data science for stats---A peer j collection*.
+
+Bryan, Jenny. (2017). *Data rectangling [2017 video]*. <https://www.rstudio.com/resources/videos/data-rectangling/>
+
+Bryan, Jenny. (2017). *Data wrangling, exploration, and analysis with r, UBC STAT 545A and 547M* [Manual]. <https://github.com/STAT545-UBC>
+
+Bryan, Jenny, & TAs, the S. 545. (2017). *Happy git and GitHub for the useR*. <http://happygitwithr.com/>
+
+Carmichael, I. (2017). *Introduction to data science, UNC STOR 390* [Manual]. <https://idc9.github.io/stor390/>
+
+Clarke, R., Dorwin, D., & Nash, R. (2009). Is open source software more secure? *Homeland Security/Cyber Security*.
+
+Cleveland, W. S., & McGill, R. (1985). Graphical Perception and Graphical Methods for Analyzing Scientific Data. *Science, New Series*, *229*(4716), 828--833.
+
+Collaboration, O. S. & others. (2015). Estimating the reproducibility of psychological science. *Science*, *349*(6251), aac4716.
+
+Cox, J., & Lindell, M. (2013). Visualizing uncertainty in predicted hurricane tracks. *International Journal for Uncertainty Quantification*, *3*(2).
+
+Donoho, D. (2017). 50 Years of Data Science. *Journal of Computational and Graphical Statistics*, *26*(4), 745--766. <https://doi.org/10.1080/10618600.2017.1384734>
+
+FitzGerald, B., Levin, P. L., & Parziale, J. (2016). *Open source software & the department of defense*. Center for a New American Security.
+
+Freeman, M., & Ross, J. (2017). *Technical foundations of informatics, u washington INFO 201*. <https://info201.github.io>
+
+Gandrud, C. (2016). *Reproducible research with r and r studio*. CRC Press.
+
+Gerla, M., Lee, E.-K., Pau, G., & Lee, U. (2014). Internet of vehicles: From intelligent grid to autonomous cars and vehicular clouds. *Internet of Things (WF-IoT), 2014 IEEE World Forum On*, 241--246.
+
+Grange, J., Lakens, D., Adolfi, F., Albers, C., Anvari, F., Apps, M., Argamon, S., Baguley, T., Becker, R., Benning, S., & others. (2018). Justify your alpha. *Nature Human Behavior*.
+
+Gutierrez, D. (2018). *How tidyverse guides r programmers through data science workflows*. <https://opendatascience.com/how-tidyverse-guides-r-programmers-through-data-science-workflows/>
+
+Hathaway, J. (2017). *Data wrangling, exploration, and visualization, BYU-Idaho Math/CS 335* [Manual]. <https://byuistats.github.io/M335/index.html>
+
+Healy, K. (2017). *Data visualization for social science: A practical introduction with r and ggplot2*. <https://socviz.co>
+
+Hicks, S. C., & Irizarry, R. A. (2017). *Introduction to data science, BST 260* [Manual]. <https://github.com/datasciencelabs/2017>
+
+Hicks, S. C., & Irizarry, R. A. (2018). A Guide to Teaching Data Science. *The American Statistician*, *72*(4), 382--391. <https://doi.org/10/gfr5tf>
+
+Ioannidis, J. P. (2005). Why most published research findings are false. *PLoS Medicine*, *2*(8), e124.
+
+Isaacson, W. (2014). *The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution*. Simon and Schuster.
+
+James, G., Witten, D., Hastie, T., & Tibshirani, R. (2013). *An Introduction to Statistical Learning* (Vol. 103). Springer New York. <https://doi.org/10.1007/978-1-4614-7138-7>
+
+Kumar, D., Wong, A., & Taylor, G. W. (2017). Explaining the unexplained: A class-enhanced attentive response (clear) approach to understanding deep neural networks. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops*, 36--44.
+
+Lakatos, I. (1969). Falsification and the methodology of scientific research programmes. *Criticism and the Growth of Knowledge. Cambridge University Press: Cambridge*.
+
+Lanning, K. (1996). Robustness is not dimensionality: On the sensitivity of component comparability coefficients to sample size. *Multivariate Behavioral Research*, *31*(1), 33--46.
+
+Lanning, K. (2018). *Data visualizations in personality and social psychology: Challenges in representing taxonomic, community, and developmental structures.*
+
+Leek, J. T., & Peng, R. D. (2015). Statistics: P values are just the tip of the iceberg. *Nature*, *520*(7549), 612.
+
+Loevinger, J. (1957). Objective Tests as Instruments of Psychological Theory. *Psychological Reports*, *3*(3), 635--694. <https://doi.org/10.2466/pr0.1957.3.3.635>
+
+Loukides, Mike, M., Hilary, Patil, DJ Patil. (2018). *Ethics and data science*. O'Reilly.
+
+Majumder, M. (2014). *Introduction to data science, nebraska DSC 256* [Manual]. <http://mamajumder.github.io/data-science/fall-2014/>
+
+Miguel, E., Camerer, C., Casey, K., Cohen, J., Esterling, K. M., Gerber, A., Glennerster, R., Green, D. P., Humphreys, M., Imbens, G., & others. (2014). Promoting transparency in social science research. *Science*, *343*(6166), 30--31.
+
+Peng, RD, & Matsui, E. (2016). *The art of data science: A guide for anyone who works with data*.
+
+Peng, Roger. (2018). *Teaching r to new users---From tapply to the tidyverse*. <https://simplystatistics.org/2018/07/12/use-r-keynote-2018/>
+
+Persily, N. (2017). Can democracy survive the Internet? *Journal of Democracy*, *28*(2), 63--76.
+
+R Core Team. (2017). *R: A language and environment for statistical computing* [Manual]. <https://www.R-project.org/>
+
+Roger Peng, Brian Caffo, J. L. (2017). *Data science certificate program, johns hopkins university / coursera* [Manual]. <https://github.com/DataScienceSpecialization/courses>
+
+Salganik, M. J. (2017). *Bit by bit: Social research in the digital age*. Princeton University Press.
+
+Silge, J., & Robinson, D. (2017). *Text mining with R: A tidy approach*. O'Reilly Media, Inc. <https://www.tidytextmining.com/>
+
+Slovic, P., Zionts, D., Woods, A. K., Goodman, R., & Jinks, D. (2013). Psychic numbing and mass atrocity. *The Behavioral Foundations of Public Policy*, 126--142.
+
+Stanton, J. M. (2013). *Introduction to data science*. CRC Press. <https://archive.org/details/DataScienceBookV3>
+
+Stephens-Davidowitz, S. (2017). *Everybody lies: Big data, new data and what the Internet can tell us about who we really are*.
+
+Sternberg, R. J. (1999). The theory of successful intelligence. *Review of General Psychology*, *3*(4), 292--316.
+
+Storey, J. (2017). *Introduction to data science, princeton SML 201* [Manual]. <https://github.com/SML201>
+
+Szucs, D., & Ioannidis, J. (2017). When null hypothesis significance testing is unsuitable for research: A reassessment. *Frontiers in Human Neuroscience*, *11*, 390.
+
+Thies, J., Zollhöfer, M., Nießner, M., Valgaerts, L., Stamminger, M., & Theobalt, C. (2015). Real-time expression transfer for facial reenactment. *ACM Trans. Graph.*, *34*(6), 183--1.
+
+Tufte, E. R. (2001). *The visual display of quantitative information* (2nd ed.). Graphics Press.
+
+Tukey, J. W. (1962). The future of data analysis. *The Annals of Mathematical Statistics*, *33*(1), 1--67.
+
+Tukey, J. W. (1977). EDA: Exploratory data analysis. *Reading, Mass*.
+
+Wickham, H. (2017). *Data challenge lab, stanford* [Manual]. <https://github.com/dcl-2017-04/curriculum>
+
+Wilkinson, L. (2006). *The grammar of graphics*. Springer Science & Business Media.
+
+Xie, Y. (2015). *Dynamic documents with R and knitr* (2nd ed.). Chapman and Hall/CRC. <http://yihui.name/knitr/>
+
+Xie, Y. (2017a). *bookdown: Authoring books and technical documents with r markdown* [Manual]. <https://CRAN.R-project.org/package=bookdown>
+
+Xie, Y. (2017b). *knitr: A general-purpose package for dynamic report generation in r* [Manual]. <https://CRAN.R-project.org/package=knitr>
+
+Yandell, B. (2017). *R for data sciences, u wisconsin* [Manual]. <https://github.com/datascience-uwmadison/R_for_data_sciences>
