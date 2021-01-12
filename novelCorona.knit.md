@@ -1,7 +1,7 @@
 ---
 title: "Tracking the Novel Coronavirus"
 author: "Kevin Lanning, Wilkes Honors College"
-date: "02022020 :)"
+date: "02022020"
 output: html_document
 ---
 
@@ -30,10 +30,10 @@ sheets_deauth()
 ```
 
 ```r
-coronaURL <- "https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM" 
-nsheets <- sheets_get(as_id(coronaURL)) %>% 
+coronaURL <- "https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM"
+nsheets <- sheets_get(as_id(coronaURL)) %>%
     extract2(6) %>% # gets the sixth element in a list  
-    nrow() 
+    nrow()
 ```
 
 ```
@@ -44,24 +44,9 @@ nsheets <- sheets_get(as_id(coronaURL)) %>%
 ```
 
 ```r
-# j <- sheets_read(as_id(coronaURL), sheet = i) 
+# j <- sheets_read(as_id(coronaURL), sheet = i)
 ```
 
 ### Reading the data
 
-The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R.
