@@ -1,0 +1,26 @@
+---
+title: "honors introduction to data science"
+subtitle: ""
+output:
+  html_document:
+    toc: false
+    theme: spacelab 
+    highlight: pygments
+
+---
+### Spring 2021
+
+This site (https://kevinlanning.github.io/DataSciSpring2021/) hosts course materials for the Wilkes Honors College (WHC) *Intro to Data Science* course in Spring 2021, taught by Professor Kevin Lanning. It is a work in progress, and will be continuously revised throughout the term.
+
+The files which were used to generate this site reside on https://github.com/kevinlanning/DataSciSpring2021. It was created using [R Markdown](http://rmarkdown.rstudio.com/), with assistance from a [post by Aleszu Bajak](http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/).
+
+### some additional resources
+
+[DataCamp](https://www.datacamp.com/) has generously provided full access to their entire online curriculum for students in this class.   
+
+The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile   (https://www.coursera.org/specializations/jhu-data-science).
+
+If you use these (or other) resources, please let your classmates know.
+
+\- *revised January 12, 2021*
+
