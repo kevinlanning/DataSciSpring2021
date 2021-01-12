@@ -1,0 +1,521 @@
+<<<<<<< HEAD:novelCorona.md
+---
+title: "Tracking the Novel Coronavirus"
+author: "Kevin Lanning, Wilkes Honors College"
+date: "02022020"
+output: html_document
+---
+
+This is an educational script for students learning R with the tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE) using the Googlesheets4 package written by Jenny Bryan.  
+
+It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added.
+
+```{r setup, message = FALSE}
+library(googledrive)
+library(googlesheets4)
+library(tidyverse)
+library(magrittr)
+library(lubridate)
+library(plotly)
+library(htmlwidgets)
+drive_deauth()
+sheets_deauth()
+coronaURL <- "https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM"
+nsheets <- sheets_get(as_id(coronaURL)) %>%
+    extract2(6) %>% # gets the sixth element in a list  
+    nrow()
+# j <- sheets_read(as_id(coronaURL), sheet = i)
+
+```
+
+### Reading the data
+
+The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R.
+
+```{r readdata, message = FALSE}
+# variables to retain or create
+numvars <- c("Confirmed", "Deaths", "Recovered")
+varlist <- c("Province/State", "Country/Region",
+             "Last Update", numvars)
+# one cool trick to initialize a tibble
+coronaData <- varlist %>%
+     map_dfr( ~tibble(!!.x := logical() ) )
+
+# add data from Google sheet to tibble
+for (i in 1:(nsheets-1)) {
+  j <- sheets_read(as_id(coronaURL), sheet = i)
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j)
+}
+# the first (earliest) sheet had different var names
+for (i in (nsheets):(nsheets)) {
+  j <- sheets_read(as_id(coronaURL), sheet = i) %>%
+        mutate(`Last Update` = `Date last updated`)
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j)
+}
+```
+
+### Cleaning (wrangling, munging) the data
+
+Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming, as was the case here. The following letters refer to sections of the code below.
+
+* a - fix a few missing values outside of China for province and country
+* b - the earliest cases, all in China, did not include country
+* c - because province/state is included inconsistently, an unambiguous place variable is created
+* d - reportdate is renamed (because)
+* e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.
+* f - for dates where no data was supplied, the most recent (previous) data are used
+* g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.
+* h - Prior to Feb 1, reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.
+
+```{r cleaning}
+coronaData %<>%
+# a
+  mutate (`Province/State` = case_when(
+    (is.na(`Province/State`) &
+       (`Country/Region` == "Australia")) ~ "New South Wales",
+    (is.na(`Province/State`) &
+       (`Country/Region` == "Germany")) ~ "Bavaria",
+    TRUE ~ `Province/State`)) %>%
+  mutate (`Country/Region` = case_when(
+    `Province/State` == "Hong Kong" ~ "Hong Kong",
+    `Province/State` == "Taiwan" ~ "Taiwan",
+    `Province/State` == "Washington" ~ "US",
+# b
+    is.na (`Country/Region`) ~ "Mainland China",
+    TRUE ~ `Country/Region`)) %>%
+# c
+  mutate(place = ifelse(is.na(`Province/State`),
+                        `Country/Region`,
+                        paste0(`Province/State`,", ",
+                               `Country/Region`))) %>%
+# d
+  mutate(reportDate =
+           date(`Last Update`)) %>%
+  group_by(place,reportDate) %>%
+# e
+  slice(which.max(`Last Update`)) %>%
+  select(-c(place,`Last Update`)) %>%
+  ungroup() %>%
+  # fill in missing dates for each place
+# f
+  group_by(place) %>%
+  complete(reportDate = seq.Date(min(reportDate),
+                                 today(),
+                                 by="day")) %>%
+  fill(c(Confirmed,Deaths,Recovered,
+         `Country/Region`,`Province/State`)) %>%
+# g
+  mutate_if(is.numeric, ~replace_na(., 0)) %>%
+  ungroup() %>%
+# h
+  mutate(dropcase = ((!str_detect(`Province/State`,",")) &
+                       (reportDate  > "2020-01-31") &
+                       (`Country/Region` == "Canada" | `Country/Region` == "US"))) %>%
+# dplyr called explicitly here because plotly has taken over 'filter'
+  dplyr::filter (!dropcase)
+```
+
+### Simplifying the data: China and the rest of the world
+
+This separates data into three locations, breaking down China into Hubei (Wuhan) and other, then summarizes results:
+
+```{r threelocations}
+coronaDataSimple <- coronaData %>%
+  mutate(country = case_when(
+    str_detect(`Country/Region`,"China") ~ "China",
+    TRUE ~ "Other countries")) %>%
+  mutate(location = case_when(
+    place == "Hubei, Mainland China" ~ "Hubei (Wuhan)",
+    country == "China" ~ "Other China",
+    TRUE ~ "Outside of China")) %>%
+  group_by(location,reportDate) %>%
+  summarize(Confirmed = sum(Confirmed),
+            Deaths = sum(Deaths),
+            Recovered = sum(Recovered)) %>%
+  ungroup()
+```
+
+### An initial plot
+
+The first plot is simple, including data for only deaths. A caption is added toshow the source of the data.
+
+```{r simpleplot}
+myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
+coronaPlot0 <- coronaDataSimple %>%
+  ggplot(aes(x=reportDate)) +
+  geom_line(aes(y=Deaths, color = location)) +
+  labs(caption = myCaption)
+coronaPlot0
+```
+
+
+
+### Adding recovered cases
+
+Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes are self-evident.
+
+```{r deathsrecovered}
+mySubtitle <- paste0(
+         "Recovered cases (solid line) and deaths (dotted) by region through ",
+         (month(today())), "/",
+         (day(today())),"/",
+         (year(today())),".")
+myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
+coronaPlot1 <- coronaDataSimple %>%
+  ggplot(aes(x=reportDate)) +
+  geom_line(aes(y=Recovered,
+                color = location),
+            linetype = "solid") +
+  geom_line(aes(y=Deaths,
+                color = location),
+            linetype = "dotted") +
+  theme(axis.title.y =
+        element_text(angle = 90,
+                     vjust = 1,size = 14),
+        legend.position = (c(.2,.8))) +
+  labs(title = "Novel coronavirus",
+       subtitle = mySubtitle,
+       y = "Cases",
+       caption = myCaption)
+coronaPlot1
+```
+
+### Make the graph interactive
+
+Plotly is an open-source, javascript based library that produces interactive graphs. The syntax that Plotly requires is (a little) different from ggplot, so, for example, the subtitle and caption are folded in to the title here, and the legend is moved a little further over.
+
+```{r confirmed}
+p <- ggplotly(coronaPlot1) %>%
+  # make interactive
+  layout(legend = list(x=.1,y=.9),
+         title = list(text = paste0('Novel coronavirus',
+                                    '<br>',
+                                    '<sup>',
+                                    mySubtitle,
+                                    myCaption,
+                                    '</sup>')))
+saveWidget(p, file="coronaDeathsRecovered.html")
+p
+```
+
+### Plotting confirmed cases
+
+In this last figure, data for confirmed cases are shown (only the interactive version is included here):
+
+```{r}
+mySubtitle <- paste0(
+         "Confirmed cases by region through ",
+         (month(today())), "/",
+         (day(today())),"/",
+         (year(today())),".")
+coronaPlot2 <- coronaDataSimple %>%
+  ggplot(aes(x=reportDate)) +
+  geom_line(aes(y=Confirmed,
+                color = location),
+            linetype = "solid") +
+  theme(axis.title.y =
+        element_text(angle = 90,
+                     vjust = 1,size = 14),
+        legend.position = (c(.2,.8))) +
+  labs(title = "Novel coronavirus",
+       subtitle = mySubtitle,
+       y = "Cases",
+       caption = myCaption)
+
+p <- ggplotly(coronaPlot2) %>%
+  # make interactive
+  layout(legend = list(x=.1,y=.9),
+         title = list(text = paste0('Novel coronavirus',
+                                    '<br>',
+                                    '<sup>',
+                                    mySubtitle,
+                                    myCaption,
+                                    '</sup>')))
+saveWidget(p, file="coronaConfirmed.html")
+p
+```
+
+### Some questions
+
+1. Consider the data and try to run the code yourself.
+  + What problems did you encounter?
+  + What parts need to be annotated more?
+
+2. Can you reverse-engineer my code? Where is it confusing? (remember the 15 minute rule).
+
+3. Can you improve on these plots?
+
+4. Some more challenging questions.
+  + What is (roughly) the shape of the function for each of the three variables, and for China/Other?
+  + What values would you expect for, say, ten days from now?
+
+### Additional notes
+
+If you are interested in looking at additional epidemiological datasets and how they might be looked at in R, consider this source by Tomás J. Aragón (https://bookdown.org/medepi/phds/). For Plotly in R, check out https://plotly-r.com/
+=======
+---
+title: "Tracking the Novel Coronavirus"
+author: "Kevin Lanning, Wilkes Honors College"
+date: "02022020"
+output: html_document
+---
+
+This is an educational script for students learning R with the tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE) using the Googlesheets4 package written by Jenny Bryan.  
+
+It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added.
+
+```{r setup, message = FALSE}
+library(googledrive)
+library(googlesheets4)
+library(tidyverse)
+library(magrittr)
+library(lubridate)
+library(plotly)
+library(htmlwidgets)
+drive_deauth()
+sheets_deauth()
+coronaURL <- "https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM"
+nsheets <- sheets_get(as_id(coronaURL)) %>%
+    extract2(6) %>% # gets the sixth element in a list  
+    nrow()
+# j <- sheets_read(as_id(coronaURL), sheet = i)
+
+```
+
+### Reading the data
+
+The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R.
+
+```{r readdata, message = FALSE}
+# variables to retain or create
+numvars <- c("Confirmed", "Deaths", "Recovered")
+varlist <- c("Province/State", "Country/Region",
+             "Last Update", numvars)
+# one cool trick to initialize a tibble
+coronaData <- varlist %>%
+     map_dfr( ~tibble(!!.x := logical() ) )
+
+# add data from Google sheet to tibble
+for (i in 1:(nsheets-1)) {
+  j <- sheets_read(as_id(coronaURL), sheet = i)
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j)
+}
+# the first (earliest) sheet had different var names
+for (i in (nsheets):(nsheets)) {
+  j <- sheets_read(as_id(coronaURL), sheet = i) %>%
+        mutate(`Last Update` = `Date last updated`)
+# if a variable doesn't exist in sheet, add it
+  j[setdiff(varlist,names(j))] <- NA
+  j %<>% select(varlist)
+  coronaData <- rbind(coronaData, j)
+}
+```
+
+### Cleaning (wrangling, munging) the data
+
+Cleaning the data includes not just finding "errors," but adapting it for our own use. It's generally time consuming, as was the case here. The following letters refer to sections of the code below.
+
+* a - fix a few missing values outside of China for province and country
+* b - the earliest cases, all in China, did not include country
+* c - because province/state is included inconsistently, an unambiguous place variable is created
+* d - reportdate is renamed (because)
+* e - in some cases, multiple reports are issued for each day. only the last of these is used for each place.
+* f - for dates where no data was supplied, the most recent (previous) data are used
+* g - values of NA for Deaths, Confirmed, and Recovered cases are replaced by zero.
+* h - Prior to Feb 1, reporting for US included only state, since then, city and state. This drops the (duplicated) province/state-only values beginning Feb 1.
+
+```{r cleaning}
+coronaData %<>%
+# a
+  mutate (`Province/State` = case_when(
+    (is.na(`Province/State`) &
+       (`Country/Region` == "Australia")) ~ "New South Wales",
+    (is.na(`Province/State`) &
+       (`Country/Region` == "Germany")) ~ "Bavaria",
+    TRUE ~ `Province/State`)) %>%
+  mutate (`Country/Region` = case_when(
+    `Province/State` == "Hong Kong" ~ "Hong Kong",
+    `Province/State` == "Taiwan" ~ "Taiwan",
+    `Province/State` == "Washington" ~ "US",
+# b
+    is.na (`Country/Region`) ~ "Mainland China",
+    TRUE ~ `Country/Region`)) %>%
+# c
+  mutate(place = ifelse(is.na(`Province/State`),
+                        `Country/Region`,
+                        paste0(`Province/State`,", ",
+                               `Country/Region`))) %>%
+# d
+  mutate(reportDate =
+           date(`Last Update`)) %>%
+  group_by(place,reportDate) %>%
+# e
+  slice(which.max(`Last Update`)) %>%
+  select(-c(place,`Last Update`)) %>%
+  ungroup() %>%
+  # fill in missing dates for each place
+# f
+  group_by(place) %>%
+  complete(reportDate = seq.Date(min(reportDate),
+                                 today(),
+                                 by="day")) %>%
+  fill(c(Confirmed,Deaths,Recovered,
+         `Country/Region`,`Province/State`)) %>%
+# g
+  mutate_if(is.numeric, ~replace_na(., 0)) %>%
+  ungroup() %>%
+# h
+  mutate(dropcase = ((!str_detect(`Province/State`,",")) &
+                       (reportDate  > "2020-01-31") &
+                       (`Country/Region` == "Canada" | `Country/Region` == "US"))) %>%
+# dplyr called explicitly here because plotly has taken over 'filter'
+  dplyr::filter (!dropcase)
+```
+
+### Simplifying the data: China and the rest of the world
+
+This separates data into three locations, breaking down China into Hubei (Wuhan) and other, then summarizes results:
+
+```{r threelocations}
+coronaDataSimple <- coronaData %>%
+  mutate(country = case_when(
+    str_detect(`Country/Region`,"China") ~ "China",
+    TRUE ~ "Other countries")) %>%
+  mutate(location = case_when(
+    place == "Hubei, Mainland China" ~ "Hubei (Wuhan)",
+    country == "China" ~ "Other China",
+    TRUE ~ "Outside of China")) %>%
+  group_by(location,reportDate) %>%
+  summarize(Confirmed = sum(Confirmed),
+            Deaths = sum(Deaths),
+            Recovered = sum(Recovered)) %>%
+  ungroup()
+```
+
+### An initial plot
+
+The first plot is simple, including data for only deaths. A caption is added toshow the source of the data.
+
+```{r simpleplot}
+myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
+coronaPlot0 <- coronaDataSimple %>%
+  ggplot(aes(x=reportDate)) +
+  geom_line(aes(y=Deaths, color = location)) +
+  labs(caption = myCaption)
+coronaPlot0
+```
+
+
+
+### Adding recovered cases
+
+Here, recovered cases and deaths are included (as these are roughly on the same scale). Additional changes are self-evident.
+
+```{r deathsrecovered}
+mySubtitle <- paste0(
+         "Recovered cases (solid line) and deaths (dotted) by region through ",
+         (month(today())), "/",
+         (day(today())),"/",
+         (year(today())),".")
+myCaption <- " Data courtesy JHU/CSSE http://bit.ly/ncvdata"
+coronaPlot1 <- coronaDataSimple %>%
+  ggplot(aes(x=reportDate)) +
+  geom_line(aes(y=Recovered,
+                color = location),
+            linetype = "solid") +
+  geom_line(aes(y=Deaths,
+                color = location),
+            linetype = "dotted") +
+  theme(axis.title.y =
+        element_text(angle = 90,
+                     vjust = 1,size = 14),
+        legend.position = (c(.2,.8))) +
+  labs(title = "Novel coronavirus",
+       subtitle = mySubtitle,
+       y = "Cases",
+       caption = myCaption)
+coronaPlot1
+```
+
+### Make the graph interactive
+
+Plotly is an open-source, javascript based library that produces interactive graphs. The syntax that Plotly requires is (a little) different from ggplot, so, for example, the subtitle and caption are folded in to the title here, and the legend is moved a little further over.
+
+```{r confirmed}
+p <- ggplotly(coronaPlot1) %>%
+  # make interactive
+  layout(legend = list(x=.1,y=.9),
+         title = list(text = paste0('Novel coronavirus',
+                                    '<br>',
+                                    '<sup>',
+                                    mySubtitle,
+                                    myCaption,
+                                    '</sup>')))
+saveWidget(p, file="coronaDeathsRecovered.html")
+p
+```
+
+### Plotting confirmed cases
+
+In this last figure, data for confirmed cases are shown (only the interactive version is included here):
+
+```{r}
+mySubtitle <- paste0(
+         "Confirmed cases by region through ",
+         (month(today())), "/",
+         (day(today())),"/",
+         (year(today())),".")
+coronaPlot2 <- coronaDataSimple %>%
+  ggplot(aes(x=reportDate)) +
+  geom_line(aes(y=Confirmed,
+                color = location),
+            linetype = "solid") +
+  theme(axis.title.y =
+        element_text(angle = 90,
+                     vjust = 1,size = 14),
+        legend.position = (c(.2,.8))) +
+  labs(title = "Novel coronavirus",
+       subtitle = mySubtitle,
+       y = "Cases",
+       caption = myCaption)
+
+p <- ggplotly(coronaPlot2) %>%
+  # make interactive
+  layout(legend = list(x=.1,y=.9),
+         title = list(text = paste0('Novel coronavirus',
+                                    '<br>',
+                                    '<sup>',
+                                    mySubtitle,
+                                    myCaption,
+                                    '</sup>')))
+saveWidget(p, file="coronaConfirmed.html")
+p
+```
+
+### Some questions
+
+1. Consider the data and try to run the code yourself.
+  + What problems did you encounter?
+  + What parts need to be annotated more?
+
+2. Can you reverse-engineer my code? Where is it confusing? (remember the 15 minute rule).
+
+3. Can you improve on these plots?
+
+4. Some more challenging questions.
+  + What is (roughly) the shape of the function for each of the three variables, and for China/Other?
+  + What values would you expect for, say, ten days from now?
+
+### Additional notes
+
+If you are interested in looking at additional epidemiological datasets and how they might be looked at in R, consider this source by Tomás J. Aragón (https://bookdown.org/medepi/phds/). For Plotly in R, check out https://plotly-r.com/
+>>>>>>> 6fcd3706f4fffc4a3dce00b481d716ace2d793ec:novelCorona.Rmd
