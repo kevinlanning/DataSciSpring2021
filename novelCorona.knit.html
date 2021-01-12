@@ -9,18 +9,21 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Kevin Lanning, Wilkes Honors College" />
 
 
-<title>honors introduction to data science</title>
+<title>Tracking the Novel Coronavirus</title>
 
 <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -31,6 +34,21 @@
   ul.task-list{list-style: none;}
     </style>
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
 
 
 
@@ -96,33 +114,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 52px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 57px;
-  margin-top: -57px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -295,22 +313,40 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">honors introduction to data science</h1>
+<h1 class="title toc-ignore">Tracking the Novel Coronavirus</h1>
+<h4 class="author">Kevin Lanning, Wilkes Honors College</h4>
+<h4 class="date">02022020</h4>
 
 </div>
 
 
-<div id="spring-2021" class="section level3">
-<h3>Spring 2021</h3>
-<p>This site (<a href="https://kevinlanning.github.io/DataSciSpring2021/" class="uri">https://kevinlanning.github.io/DataSciSpring2021/</a>) hosts course materials for the Wilkes Honors College (WHC) <em>Intro to Data Science</em> course in Spring 2021, taught by Professor Kevin Lanning. It is a work in progress, and will be continuously revised throughout the term.</p>
-<p>The files which were used to generate this site reside on <a href="https://github.com/kevinlanning/DataSciSpring2021" class="uri">https://github.com/kevinlanning/DataSciSpring2021</a>. It was created using <a href="http://rmarkdown.rstudio.com/">R Markdown</a>, with assistance from a <a href="http://www.storybench.org/convert-google-doc-rmarkdown-publish-github-pages/">post by Aleszu Bajak</a>.</p>
-</div>
-<div id="some-additional-resources" class="section level3">
-<h3>some additional resources</h3>
-<p><a href="https://www.datacamp.com/">DataCamp</a> has generously provided full access to their entire online curriculum for students in this class.</p>
-<p>The Data Science Specialization at Coursera is not free, but you may nonetheless find it worthwhile (<a href="https://www.coursera.org/specializations/jhu-data-science" class="uri">https://www.coursera.org/specializations/jhu-data-science</a>).</p>
-<p>If you use these (or other) resources, please let your classmates know.</p>
-<p>- <em>revised January 12, 2021</em></p>
+<p>This is an educational script for students learning R with the tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE) using the Googlesheets4 package written by Jenny Bryan.</p>
+<p>It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added.</p>
+<pre class="r"><code>library(googledrive)
+library(googlesheets4)
+library(tidyverse)
+library(magrittr)
+library(lubridate)
+library(plotly)
+library(htmlwidgets)
+drive_deauth()
+sheets_deauth()</code></pre>
+<pre><code>## Warning: `sheets_deauth()` is deprecated as of googlesheets4 0.2.0.
+## Please use `gs4_deauth()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre class="r"><code>coronaURL &lt;- &quot;https://docs.google.com/spreadsheets/d/1wQVypefm946ch4XDp37uZ-wartW4V7ILdg-qYiDXUHM&quot; 
+nsheets &lt;- sheets_get(as_id(coronaURL)) %&gt;% 
+    extract2(6) %&gt;% # gets the sixth element in a list  
+    nrow() </code></pre>
+<pre><code>## Warning: `sheets_get()` is deprecated as of googlesheets4 0.2.0.
+## Please use `gs4_get()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre class="r"><code># j &lt;- sheets_read(as_id(coronaURL), sheet = i) </code></pre>
+<div id="reading-the-data" class="section level3">
+<h3>Reading the data</h3>
+<p>The Novel Coronavirus data consists of a series of tabs in a Google Sheet. This finds them and combines them into a single sheet in R.</p>
 </div>
 
 

@@ -12,7 +12,7 @@ This document is current as of `r Sys.Date()`. An updated version may be found a
 
 This is **COP 3076 Section 1**. It is a 3-credit class offered in the **Spring 2021** term. The class meets **MW 930-1150 on the Zoom platform**. There is no lab.
 
-The professor is Kevin Lanning. My (virtual) office hours are **MT 2-4;** additional times can be scheduled as needed**.** Please make an appointment at <https://calendly.com/kevin-lanning/officehours>. My office phone is (561) 594-1018, but it is quicker to reach me via email at <lanning@fau.edu>.
+The professor is Kevin Lanning. My (virtual) office hours are **MT 2-4;** additional times can be scheduled as needed**.** Please make an appointment at <https://calendly.com/kevin-lanning/student-advising>. My office phone is (561) 594-1018, but it is quicker to reach me via email at <lanning@fau.edu>.
 
 **course prerequisites / co-requisites**: STA 2023 (or equivalent, or permission of instructor) is a prerequisite.
 
