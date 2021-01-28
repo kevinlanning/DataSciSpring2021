@@ -1,4 +1,4 @@
-<<<<<<< HEAD:novelCorona.md
+ <<<<<<< HEAD:novelCorona.md
 ---
 title: "Tracking the Novel Coronavirus"
 author: "Kevin Lanning, Wilkes Honors College"
@@ -9,6 +9,9 @@ output: html_document
 This is an educational script for students learning R with the tidyverse. It reads data provided by the Johns Hopkins Center for Systems Science and Engineering (JHU/CSSE) using the Googlesheets4 package written by Jenny Bryan.  
 
 It was modified February 3 because of new GoogleSheet link and altered variable names, on Feb 5 because of a new URL for the data and additional changes in the variable name for date, and Feb 7 to (a) remove need for OAuth and (b) separate Wuhan from other China. On Feb 9, additional data cleaning was performed and interactive plots were added.
+
+In January, 2021, the code was again rewritten.
+
 
 ```{r setup, message = FALSE}
 library(googledrive)

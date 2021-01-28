@@ -1,0 +1,87 @@
+---
+title: 'Assignment01: WHC at the movies'
+author: "lanning-student, kevin"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  word_document: default
+---
+
+# Your first assignment in R
+
+*Before you go any further, please click on the ball of yarn above to read this (and some initial results) in HTML.*
+
+To introduce R, we will examine the [movies dataset](http://www2.stat.duke.edu/~mc301/data/movies.html), curated by Mine Cetinkaya-Rundel.
+
+### The first code chunk: read libraries
+
+Like many other software applications, R includes both a basic set of tools and additional ones, which are not loaded by default (to save computational resources), but loaded as separate packages or *libraries.* To use one of these packages, you must first install it on your machine. This is something you only need to do once. But every time you use the package, you must call it using the library command.
+
+We'll be using the *tidyverse*, a library - actually, a set of libraries - which jointly constitute a friendly, accessible, and powerful dialect of R. We call it in the first chunk of code here:
+
+```{r libraries}
+library(tidyverse)
+```
+
+### Off to the movies
+
+And let's go to the movies.
+
+Over the weekend, I learned that the director Michael Apted died. What films in the data did he direct? To answer this, we first load the movies data, then filter it by director (you can read "%\>%" as "and then").
+
+```{r LanningsMovieQ}
+load("movies.Rdata")
+movies %>% 
+  filter(director == "Michael Apted") 
+```
+
+## Questions for you
+
+### Part 1 (5 points)
+
+Replace "yourlastname, yourfirstname" with - yes - your last and first names in the YAML header above.
+
+### Part 2 (10)
+
+In 25 words or less, very briefly describe the Movies dataset that we are working with. Begin each line with a '\>' as this will clearly demarcate your response. Include your source (how or where did you learn about the data?)
+
+> According to the website above, "... IMDB and Rotten Tomatoes. The data represent 456 randomly sampled movies released between 1972 to 2014 in the Unites States."
+
+### Part 3 (10)
+
+Are these all of the movies Apted directed? Explain. How did you discover this?
+
+> "I knew that Apted directed other films that weren't in the data (e.g., 35UP")
+
+### Part 4 (20)
+
+Choose a different subset of movies that you think would be interesting to look at. What did you choose, and why did you choose it? (25 words max)
+
+> I wonder if, by 'between', M C-R means 'beginning with ... ending with'. So I look at movies from just these two years - 1972 and 2014...
+
+### Part 5 (20)
+
+Now use the filter command to look at these movies. (Here, do not reload the movies data, but copy the rest of the code from the chunk above and modify it in the space below).
+
+```{r myMovieQuestion}
+movies %>% 
+  filter(thtr_rel_year == 1972|
+           thtr_rel_year == 2014)
+
+```
+
+### Part 6 (10)
+
+How many movies are there in your filtered data?
+
+> 12
+
+### Part 7 (15)
+
+Roughly describe another interesting question that you would like to ask about these data, but aren't yet sure how to go about it. (50 words max)
+
+> Are new movies different from old ones, say, with respect to length? That is, are they on average longer, shorter, or more variable in duration?
+
+### Part 8 (10)
+
+Finally, *knit* this document to an HTML file, which now will include your answers, by clicking on the ball of yarn above.

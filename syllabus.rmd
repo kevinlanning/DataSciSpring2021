@@ -90,7 +90,7 @@ kable(t(scale)) %>%
 
 The schedule is a dynamic document. While due dates for the first (March 10) and second (March 23) are, pending any university-wide mandates, fixed, all other dates and content are subject to change. Please go to <https://bit.ly/WHCDataSci21> for the most recent changes and working links. Here is the schedule as of `r Sys.Date()`:
 
-<iframe width="800" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ55jFAlKdrUgSg057KguAtjN2bSZCHAEZLOs2E-juegG4pmikd8RsGp2J6S1ysZSk_fD1JVEdbAhjO/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+<iframe width="800" height="600" src="https://docs.google.com/spreadsheets/d/12Q_O4BRReHknsELnzISePesycCpfa5a8YQv1NyB1Los/edit?usp=sharing">
 
 </iframe>
 
@@ -123,6 +123,8 @@ Again, please see <https://bit.ly/WHCDataSci21> **for the latest updates.**
 **drops/withdrawals:** You are responsible for completing the process of dropping or withdrawing from a course. Please click on the following link for more information on dropping and/or withdrawing from a course. Please consult the [FAU Registrar Office](http://www.fau.edu/registrar/registration/faqs.php) for more information.
 
 **counseling and psychological services (CAPS) center:** Life as a university student can be challenging physically, mentally and emotionally. Students who find stress negatively affecting their ability to achieve academic or personal goals may wish to consider utilizing FAU's Counseling and Psychological Services (CAPS) Center. CAPS provides FAU students a range of services -- individual counseling, support meetings, and psychiatric services, to name a few -- offered to help improve and maintain emotional well-being. For more information, go to \_[*http://www.fau.edu/counseling/*](http://www.fau.edu/counseling/).
+
+***COVID-19 statement:*** All students in face-to-face classes are required to wear masks during class, and students must sanitize their own workstations upon entering the classroom. Taking these measures supports the safety and protection of the FAU community. Students who do not adhere to these rules will be asked to leave the classroom and/or be removed from the course. Students experiencing flu-like symptoms (fever, cough, shortness of breath), or students who have come in contact with an infected person should immediately contact FAU Student Health Services (561-297-3512).
 
 ## Additional references
 
